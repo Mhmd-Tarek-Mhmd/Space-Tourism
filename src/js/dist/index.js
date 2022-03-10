@@ -1,0 +1,1 @@
+"use strict";function navToggler(e){function t(t,s){e.target.ariaLabel="".concat(t," menu"),e.target.firstElementChild.src="assets/images/nav/icon-".concat(s,".svg")}var s=e.target.nextElementSibling;s.classList.toggle("show"),s.classList.contains("show")?t("Close","close"):t("Open","hamburger")}

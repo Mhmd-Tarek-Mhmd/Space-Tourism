@@ -1,6 +1,11 @@
 include layouts/head
+include layouts/nav
 
 doctype html
 html(lang="en")
   +head('Home')
   body
+    +nav('home')
+
+    script
+      include ../js/dist/index.js

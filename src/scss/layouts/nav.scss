@@ -1,0 +1,118 @@
+nav {
+  @media (max-width: 767px) {
+    padding: 24px;
+  }
+  @media (min-width: 1200px) {
+    height: 176px;
+    max-width: 1440px;
+  }
+
+  .logo {
+    width: 48px;
+    height: 48px;
+    @media (min-width: 768px) {
+      margin: 0 55px;
+    }
+    @media (min-width: 1200px) {
+      margin: 0 39px;
+    }
+  }
+
+  .line {
+    @media (min-width: 1200px) {
+      flex: 0.5;
+      height: 1px;
+      right: -30px;
+      opacity: 0.25;
+      position: relative;
+      background-color: currentColor;
+    }
+  }
+
+  .links-toggler {
+    z-index: 2;
+    cursor: pointer;
+    @media (min-width: 768px) {
+      display: none;
+    }
+    img {
+      pointer-events: none;
+    }
+  }
+
+  .links {
+    list-style: none;
+    background-color: rgb(255 255 255 / 4%);
+    a {
+      display: block;
+      font-size: 16px;
+      letter-spacing: 2.7px;
+      text-transform: uppercase;
+      font-family: "Barlow Condensed";
+      &:hover,
+      &:focus-visible {
+        outline: none;
+      }
+    }
+
+    @media (min-width: 768px) {
+      flex: 1;
+      gap: 24px;
+      max-width: 750px;
+      a {
+        height: 96px;
+        padding: 36px 0;
+        font-size: 16px;
+        letter-spacing: 2.7px;
+        text-transform: uppercase;
+        font-family: "Barlow Condensed";
+        &:hover,
+        &:focus-visible {
+          border-bottom: 3px solid rgba(255, 255, 255, 0.5);
+        }
+        &.active {
+          border-bottom: 3px solid;
+        }
+      }
+    }
+
+    @media (max-width: 767px) {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 254px;
+      height: 100%;
+      flex-direction: column;
+      align-items: start;
+      justify-content: start;
+      padding: 118px 0 0 32px;
+      z-index: 1;
+      gap: 25px;
+      will-change: translate;
+      transition: translate 0.3s;
+      transform: translateX(254px);
+      backdrop-filter: blur(30px) saturate(0.25);
+      li {
+        width: 100%;
+      }
+      a {
+        visibility: hidden;
+        will-change: visibility;
+        &:hover,
+        &:focus-visible {
+          border-right: 3px solid rgba(255, 255, 255, 0.5);
+        }
+        &.active {
+          border-right: 3px solid;
+        }
+      }
+
+      &.show {
+        transform: translateX(0);
+        a {
+          visibility: visible;
+        }
+      }
+    }
+  }
+}

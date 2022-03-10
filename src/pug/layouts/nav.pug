@@ -1,0 +1,14 @@
+mixin nav(pageName)
+  nav.space-between-flex
+    a.logo(href="/" aria-label='Space Tourism logo')
+      img(src="assets/images/logo.svg", alt="")
+
+    .line
+
+    button.links-toggler(aria-label="Open menu" onclick="navToggler(event)")
+      img(src="assets/images/nav/icon-hamburger.svg", alt="")
+
+    ul.links.center-flex
+      each item, i in ["home", "destination", "crew", "technology"]
+        li
+          a(class=`${pageName === item ? 'active' : ''}` href="pages/home.html") #[span 0#{i}] #{item}
