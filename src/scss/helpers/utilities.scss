@@ -1,0 +1,41 @@
+.center-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.space-between-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.h1 {
+  font-size: 150px;
+  font-family: "Bellefair";
+}
+.h2 {
+  font-size: 100px;
+  font-family: "Bellefair";
+}
+.h3 {
+  font-size: 56px;
+  font-family: "Bellefair";
+}
+.h4 {
+  font-size: 32px;
+  font-family: "Bellefair";
+}
+.h5 {
+  font-size: 28px;
+  font-family: "Barlow Condensed";
+}
+
+.sub-h1 {
+  font-size: 28px;
+  font-family: "Bellefair";
+}
+.sub-h2 {
+  font-size: 14px;
+  font-family: "Barlow Condensed";
+}
