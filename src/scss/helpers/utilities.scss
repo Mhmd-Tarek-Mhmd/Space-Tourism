@@ -13,22 +13,60 @@
 .h1 {
   font-size: 150px;
   font-family: "Bellefair";
+  @media (max-width: 767px) {
+    font-size: 80px;
+  }
 }
 .h2 {
-  font-size: 100px;
   font-family: "Bellefair";
+  @media (max-width: 767px) {
+    font-size: 56px;
+  }
+  @media (min-width: 768px) {
+    font-size: 80px;
+  }
+  @media (min-width: 1200px) {
+    font-size: 100px;
+  }
 }
 .h3 {
-  font-size: 56px;
   font-family: "Bellefair";
+  @media (max-width: 767px) {
+    font-size: 24px;
+  }
+  @media (min-width: 768px) {
+    font-size: 40px;
+  }
+  @media (min-width: 1200px) {
+    font-size: 56px;
+  }
 }
 .h4 {
-  font-size: 32px;
   font-family: "Bellefair";
+  @media (max-width: 767px) {
+    font-size: 16px;
+  }
+  @media (min-width: 768px) {
+    font-size: 24px;
+  }
+  @media (min-width: 1200px) {
+    font-size: 32px;
+  }
 }
 .h5 {
-  font-size: 28px;
   font-family: "Barlow Condensed";
+  @media (max-width: 767px) {
+    font-size: 16px;
+    letter-spacing: 2.7px;
+  }
+  @media (min-width: 768px) {
+    font-size: 20px;
+    letter-spacing: 3.38px;
+  }
+  @media (min-width: 1200px) {
+    font-size: 28px;
+    letter-spacing: 4.75px;
+  }
 }
 
 .sub-h1 {
@@ -37,5 +75,19 @@
 }
 .sub-h2 {
   font-size: 14px;
+  letter-spacing: 2.35px;
   font-family: "Barlow Condensed";
+}
+
+.txt {
+  font-family: "Barlow";
+  @media (max-width: 767px) {
+    font-size: 15px;
+  }
+  @media (min-width: 768px) {
+    font-size: 16px;
+  }
+  @media (min-width: 1200px) {
+    font-size: 18px;
+  }
 }
