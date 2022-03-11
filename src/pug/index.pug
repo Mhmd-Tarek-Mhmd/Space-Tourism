@@ -4,8 +4,16 @@ include layouts/nav
 doctype html
 html(lang="en")
   +head('Home')
-  body
+  body.home
     +nav('home')
+
+    main.center-flex
+      .container.space-between-flex
+        .text
+          h1 #[p.h5 SO, YOU WANT TO TRAVEL TO] #[span.h1 SPACE]
+          p.txt Let’s face it; if you want to go to space, you might as well genuinely go to outer space and not hover kind of on the edge of it. Well sit back, and relax because we’ll give you a truly out of this world experience!
+        
+        a.explore.center-flex(href="pages/destination") EXPLORE
 
     script
       include ../js/dist/index.js
