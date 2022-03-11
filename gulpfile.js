@@ -1,4 +1,5 @@
 const gulp = require("gulp"),
+  rename = require("gulp-rename"),
   pug = require("gulp-pug"),
   scss = require("gulp-sass")(require("sass")),
   autoprefixer = require("gulp-autoprefixer"),
@@ -8,18 +9,27 @@ const gulp = require("gulp"),
 // HTML Tasks
 
 gulp.task("htmlHome", () =>
-  gulp.src("src/pug/index.pug").pipe(pug()).pipe(gulp.dest("dist"))
+  gulp
+    .src("src/pug/pages/home.pug")
+    .pipe(rename("index"))
+    .pipe(pug())
+    .pipe(gulp.dest("dist"))
 );
 
 gulp.task("htmlPages", () =>
-  gulp.src("src/pug/pages/*.pug").pipe(pug()).pipe(gulp.dest("dist/pages"))
+  gulp
+    .src(["src/pug/pages/*.pug", "!src/pug/pages/home.pug"])
+    .pipe(pug())
+    .pipe(gulp.dest("dist/pages"))
 );
+
+const html = gulp.parallel("htmlHome", "htmlPages");
 
 // CSS Tasks
 
 gulp.task("css", () =>
   gulp
-    .src("src/scss/website.scss")
+    .src("src/scss/pages/*.scss")
     .pipe(scss({ outputStyle: "compressed" }))
     .pipe(autoprefixer("last 2 versions"))
     .pipe(gulp.dest("dist/assets/styles"))
@@ -29,7 +39,7 @@ gulp.task("css", () =>
 
 gulp.task("js", () =>
   gulp
-    .src("src/js/index.js")
+    .src("src/js/*.js")
     .pipe(babel({ presets: ["@babel/env"] }))
     .pipe(uglify())
     .pipe(gulp.dest("src/js/dist"))
@@ -38,8 +48,7 @@ gulp.task("js", () =>
 // Watch All Tasks
 
 gulp.task("default", () => {
-  gulp.watch("src/pug/**/*.pug", gulp.series("htmlHome"));
-  gulp.watch("src/pug/**/*.pug", gulp.series("htmlPages"));
+  gulp.watch("src/pug/**/*.pug", html);
   gulp.watch("src/scss/**/*.scss", gulp.series("css"));
-  gulp.watch("src/js/*.js", gulp.series("js"));
+  gulp.watch("src/js/*.js", gulp.series("js", html));
 });

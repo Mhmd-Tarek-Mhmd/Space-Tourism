@@ -7,7 +7,7 @@ mixin head(pageName)
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     link(rel="shortcut icon", href=`${path}images/logo.svg`)
     title Space Tourism - #{pageName}
-    link(rel="stylesheet", href=`${path}styles/website.css`)
+    link(rel="stylesheet", href=`${path}styles/${pageName.toLowerCase()}.css`)
     link(rel="preconnect" href="https://fonts.googleapis.com")
     link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
     link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bellefair&family=Barlow&family=Barlow+Condensed&display=swap")
