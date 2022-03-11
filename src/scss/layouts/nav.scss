@@ -50,13 +50,13 @@ nav {
 
   .links {
     list-style: none;
+    backdrop-filter: blur(8px);
     background-color: rgb(255 255 255 / 4%);
     a {
       display: block;
       letter-spacing: 2.7px;
       text-transform: uppercase;
-      &:hover,
-      &:focus-visible {
+      &:focus {
         outline: none;
       }
     }
@@ -97,7 +97,6 @@ nav {
       will-change: translate;
       transition: translate 0.3s;
       transform: translateX(254px);
-      backdrop-filter: blur(30px) saturate(0.25);
       li {
         width: 100%;
       }
