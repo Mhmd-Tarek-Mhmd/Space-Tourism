@@ -33,12 +33,11 @@
 
       // [1] Add tabs
       data.forEach((d, i) => {
-        $(".tabs").innerHTML += Templates.tab(d, currentPage);
+        $(".tabs").innerHTML += Templates.tab(d, i, currentPage);
         $$(".tabs .tab")
           [i].querySelectorAll("button")
           [i].classList.add("active");
       });
-      $$(".tabs .tab")[Controller.getCurrentTab()].classList.add("active");
 
       // [2] Handle navigation
       $$(".tab-controls button").forEach((btn) =>
@@ -58,9 +57,9 @@
   };
 
   const Templates = {
-    tab: function (d, currentPage) {
+    tab: function (d, i, currentPage) {
       return `
-      <article class="tab space-between-flex">
+      <article ${`class="tab space-between-flex ${i === 0 ? "active" : ""}"`}>
         ${this.tabPic(d, currentPage)}
 
         <div class=wrapper>
@@ -90,14 +89,24 @@
       }</picture>
     `,
     tabControls: (currentPage) => {
+      const data = Controller.getData()[currentPage];
+
       switch (currentPage) {
         case "destination":
-          return Controller.getData()
-            [currentPage].map((d) => `<button>${d.name.toUpperCase()}</button>`)
+          return data
+            .map(
+              (d) =>
+                `<button ${`aria-label="show ${d.name} tab"`}>${d.name.toUpperCase()}</button>`
+            )
             .join()
             .replaceAll(",", "");
         case "crew":
-          return `${currentPage} - tabControls`;
+          return data
+            .map(
+              (d) => `<button ${`aria-label="show ${d.role} tab"`}></button>`
+            )
+            .join()
+            .replaceAll(",", "");
         case "technology":
           return `${currentPage} - tabControls`;
       }
@@ -120,7 +129,13 @@
             </div>
           `;
         case "crew":
-          return `${currentPage} - tabsBody`;
+          return `
+            <h2>
+              <span class=h4>${d.role.toUpperCase()}</span>
+              <p class=h3>${d.name.toUpperCase()}</p>
+            </h2>
+            <p class=txt>${d.bio}</p>
+          `;
         case "technology":
           return `${currentPage} - tabsBody`;
       }

@@ -1,0 +1,18 @@
+include ../layouts/head
+include ../layouts/nav
+
+doctype html
+html(lang="en")
+  +head("Crew")
+  body.crew
+    +nav("crew")
+
+    main
+      .container
+        h1.h5 #[span 02] Meet your crew
+        .tabs
+
+    script
+      include ../../js/dist/nav.js
+    script
+      include ../../js/dist/tabs.js
