@@ -40,7 +40,11 @@ gulp.task("css", () =>
 gulp.task("js", () =>
   gulp
     .src("src/js/*.js")
-    .pipe(babel({ presets: ["@babel/env"] }))
+    .pipe(
+      babel({
+        plugins: ["@babel/transform-runtime"],
+      })
+    )
     .pipe(uglify())
     .pipe(gulp.dest("src/js/dist"))
 );
