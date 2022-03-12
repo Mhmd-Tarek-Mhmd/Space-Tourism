@@ -60,7 +60,7 @@
   const Templates = {
     tab: function (d, currentPage) {
       return `
-      <article class=tab>
+      <article class="tab space-between-flex">
         ${this.tabPic(d, currentPage)}
 
         <div class=wrapper>
@@ -92,7 +92,10 @@
     tabControls: (currentPage) => {
       switch (currentPage) {
         case "destination":
-          return `${currentPage} - tabControls`;
+          return Controller.getData()
+            [currentPage].map((d) => `<button>${d.name.toUpperCase()}</button>`)
+            .join()
+            .replaceAll(",", "");
         case "crew":
           return `${currentPage} - tabControls`;
         case "technology":
@@ -102,7 +105,20 @@
     tabsBody: (d, currentPage) => {
       switch (currentPage) {
         case "destination":
-          return `${currentPage} - tabsBody`;
+          return `
+            <h2 class=h2>${d.name.toUpperCase()}</h2>
+            <p class=txt>${d.description}</p>
+            <div class="info center-flex">
+              <div class=distance>
+                <h3 class=sub-h2>AVG. DISTANCE</h3>
+                <span class=sub-h1>${d.distance.toUpperCase()}</span>
+              </div>
+              <div class=time>
+                <h3 class=sub-h2>EST. TRAVEL TIME</h3>
+                <span class=sub-h1>${d.travel.toUpperCase()}</span>
+              </div>
+            </div>
+          `;
         case "crew":
           return `${currentPage} - tabsBody`;
         case "technology":
