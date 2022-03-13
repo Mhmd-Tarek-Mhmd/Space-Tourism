@@ -78,8 +78,8 @@
       <picture class=tab-pic>${
         currentPage === "technology"
           ? `
-            <source srcset=${d.images.landscape}  />
-            <source srcset=${d.images.portrait} media="(min-width: 1200px)" />
+            <source srcset=${d.images.landscape} media="(max-width: 991px)"  />
+            <source srcset=${d.images.portrait} />
             <img src=${d.images.landscape} alt=${d.name} />            
           `
           : `
@@ -108,7 +108,15 @@
             .join()
             .replaceAll(",", "");
         case "technology":
-          return `${currentPage} - tabControls`;
+          return data
+            .map(
+              (d, i) =>
+                `<button class=h4 ${`aria-label="show ${d.name} tab"`}>${
+                  i + 1
+                }</button>`
+            )
+            .join()
+            .replaceAll(",", "");
       }
     },
     tabsBody: (d, currentPage) => {
@@ -137,7 +145,13 @@
             <p class=txt>${d.bio}</p>
           `;
         case "technology":
-          return `${currentPage} - tabsBody`;
+          return `
+            <h2>
+              <span class=sub-h2>THE TERMINOLOGY…</span>
+              <p class=h3>${d.name.toUpperCase()}</p>
+            </h2>
+            <p class=txt>${d.description}</p>          
+        `;
       }
     },
   };

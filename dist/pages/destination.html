@@ -14,14 +14,14 @@
       </article>
     `},tabPic:(t,a)=>`
       <picture class=tab-pic>${"technology"===a?`
-            <source srcset=${t.images.landscape}  />
-            <source srcset=${t.images.portrait} media="(min-width: 1200px)" />
+            <source srcset=${t.images.landscape} media="(max-width: 991px)"  />
+            <source srcset=${t.images.portrait} />
             <img src=${t.images.landscape} alt=${t.name} />            
           `:`
             <source srcset=${t.images.webp} type="image/webp" />
             <img src=${t.images.png} alt=${t.name} />
           `}</picture>
-    `,tabControls:t=>{const a=r.getData()[t];switch(t){case"destination":return a.map(t=>`<button ${`aria-label="show ${t.name} tab"`}>${t.name.toUpperCase()}</button>`).join().replaceAll(",","");case"crew":return a.map(t=>`<button ${`aria-label="show ${t.role} tab"`}></button>`).join().replaceAll(",","");case"technology":return t+" - tabControls"}},tabsBody:(t,a)=>{switch(a){case"destination":return`
+    `,tabControls:t=>{const a=r.getData()[t];switch(t){case"destination":return a.map(t=>`<button ${`aria-label="show ${t.name} tab"`}>${t.name.toUpperCase()}</button>`).join().replaceAll(",","");case"crew":return a.map(t=>`<button ${`aria-label="show ${t.role} tab"`}></button>`).join().replaceAll(",","");case"technology":return a.map((t,a)=>`<button class=h4 ${`aria-label="show ${t.name} tab"`}>${a+1}</button>`).join().replaceAll(",","")}},tabsBody:(t,a)=>{switch(a){case"destination":return`
             <h2 class=h2>${t.name.toUpperCase()}</h2>
             <p class=txt>${t.description}</p>
             <div class="info center-flex">
@@ -40,4 +40,10 @@
               <p class=h3>${t.name.toUpperCase()}</p>
             </h2>
             <p class=txt>${t.bio}</p>
-          `;case"technology":return a+" - tabsBody"}}};r.init()}();</script></body></html>
+          `;case"technology":return`
+            <h2>
+              <span class=sub-h2>THE TERMINOLOGY…</span>
+              <p class=h3>${t.name.toUpperCase()}</p>
+            </h2>
+            <p class=txt>${t.description}</p>          
+        `}}};r.init()}();</script></body></html>

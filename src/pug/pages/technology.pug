@@ -1,0 +1,17 @@
+include ../layouts/head
+include ../layouts/nav
+
+doctype html
+html(lang="en")
+  +head('Technology')
+  body.technology
+    +nav('technology')
+
+    main
+      .container #[h1.h5 #[span 03] SPACE LAUNCH 101]
+      .tabs
+
+    script
+      include ../../js/dist/nav.js
+    script
+      include ../../js/dist/tabs.js

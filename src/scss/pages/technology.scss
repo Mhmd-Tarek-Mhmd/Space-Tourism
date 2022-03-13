@@ -1,0 +1,127 @@
+@import "../helpers/all.scss";
+@import "../layouts/nav.scss";
+
+body.technology {
+  @media (max-width: 767px) {
+    background-image: url(../images/technology/background-technology-mobile.jpg);
+  }
+  @media (min-width: 768px) {
+    background-image: url(../images/technology/background-technology-tablet.jpg);
+  }
+  @media (min-width: 1200px) {
+    background-image: url(../images/technology/background-technology-desktop.jpg);
+  }
+
+  main {
+    h1 {
+      line-height: 1;
+      text-transform: uppercase;
+      @media (max-width: 767px) {
+        text-align: center;
+      }
+      @media (min-width: 768px) {
+        margin: 50px 0;
+      }
+
+      span {
+        opacity: 0.25;
+      }
+    }
+
+    .tab {
+      display: none;
+      &.active {
+        display: flex;
+      }
+      @media (min-width: 768px) and (max-width: 991px) {
+        gap: 20px;
+      }
+      @media (max-width: 991px) {
+        margin-top: 32px;
+        text-align: center;
+        flex-direction: column;
+      }
+      @media (min-width: 992px) {
+        margin: auto;
+        max-width: 1440px;
+        padding-bottom: 50px;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        .center-flex {
+          justify-content: start;
+        }
+      }
+      .wrapper {
+        @extend .container;
+        @media (min-width: 992px) {
+          display: flex;
+          justify-content: space-around;
+        }
+      }
+
+      .tab-pic img {
+        @media (max-width: 991px) {
+          width: 100%;
+        }
+        @media (min-width: 992px) and (max-width: 1199px) {
+          width: 350px;
+        }
+      }
+
+      .tab-controls {
+        gap: 15px;
+        @media (min-width: 992px) {
+          display: grid;
+          padding: 24px 0;
+        }
+        @media (min-width: 1200px) {
+          padding: 0;
+          height: auto;
+        }
+        button {
+          cursor: pointer;
+          border-radius: 50%;
+          border: 1px solid white;
+          will-change: color, background-color;
+          &.active,
+          &:hover,
+          &:focus-visible {
+            color: $primary-color;
+            background-color: white;
+          }
+          @media (max-width: 767px) {
+            width: 40px;
+            height: 40px;
+          }
+          @media (min-width: 768px) {
+            width: 60px;
+            height: 60px;
+          }
+          @media (min-width: 1200px) {
+            width: 80px;
+            height: 80px;
+          }
+        }
+      }
+
+      .tab-body {
+        h2 span {
+          opacity: 0.5;
+        }
+        .txt {
+          @media (max-width: 767px) {
+            max-width: 327px;
+            margin: 10px auto 50px;
+          }
+          @media (min-width: 768px) {
+            width: 548px;
+            margin: 10px auto 20px;
+          }
+          @media (min-width: 992px) {
+            width: 470px;
+          }
+        }
+      }
+    }
+  }
+}
