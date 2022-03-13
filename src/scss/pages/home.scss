@@ -34,6 +34,12 @@ body {
 }
 
 .text {
+  h1 {
+    line-height: 1;
+    p {
+      margin-bottom: 15px;
+    }
+  }
   @media (max-width: 991px) {
     text-align: center;
   }
