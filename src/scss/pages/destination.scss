@@ -1,17 +1,6 @@
 @import "../helpers/all.scss";
 @import "../layouts/nav.scss";
-
-body {
-  @media (max-width: 767px) {
-    background-image: url(../images/destination/background-destination-mobile.jpg);
-  }
-  @media (min-width: 768px) {
-    background-image: url(../images/destination/background-destination-tablet.jpg);
-  }
-  @media (min-width: 1200px) {
-    background-image: url(../images/destination/background-destination-desktop.jpg);
-  }
-}
+@include bg("destination");
 
 h1 {
   line-height: 1;

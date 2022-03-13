@@ -1,17 +1,7 @@
 @import "../helpers/all.scss";
 @import "../layouts/nav.scss";
+@include bg("crew");
 
-body {
-  @media (max-width: 767px) {
-    background-image: url(../images/crew/background-crew-mobile.jpg);
-  }
-  @media (min-width: 768px) {
-    background-image: url(../images/crew/background-crew-tablet.jpg);
-  }
-  @media (min-width: 1200px) {
-    background-image: url(../images/crew/background-crew-desktop.jpg);
-  }
-}
 h1 {
   line-height: 1;
   text-transform: uppercase;

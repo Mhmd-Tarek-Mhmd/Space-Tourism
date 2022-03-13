@@ -1,0 +1,13 @@
+@mixin bg($pageName) {
+  body {
+    @media (max-width: 767px) {
+      background-image: url(../images/#{$pageName}/background-#{$pageName}-mobile.jpg);
+    }
+    @media (min-width: 768px) {
+      background-image: url(../images/#{$pageName}/background-#{$pageName}-tablet.jpg);
+    }
+    @media (min-width: 992px) {
+      background-image: url(../images/#{$pageName}/background-#{$pageName}-desktop.jpg);
+    }
+  }
+}
