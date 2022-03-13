@@ -67,6 +67,7 @@ body.home {
         transition-duration: 0.5s;
         will-change: width, height;
         transition-property: width, height;
+        transition-timing-function: ease-in-out;
       }
       &:hover::before {
         width: 150%;
