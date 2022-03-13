@@ -1,7 +1,7 @@
 @import "../helpers/all.scss";
 @import "../layouts/nav.scss";
 
-body.crew {
+body {
   @media (max-width: 767px) {
     background-image: url(../images/crew/background-crew-mobile.jpg);
   }
@@ -11,123 +11,120 @@ body.crew {
   @media (min-width: 1200px) {
     background-image: url(../images/crew/background-crew-desktop.jpg);
   }
+}
+h1 {
+  line-height: 1;
+  text-transform: uppercase;
+  @media (max-width: 767px) {
+    text-align: center;
+  }
+  @media (min-width: 768px) {
+    margin: 50px 0;
+  }
 
-  main {
-    h1 {
-      line-height: 1;
-      text-transform: uppercase;
-      @media (max-width: 767px) {
-        text-align: center;
-      }
-      @media (min-width: 768px) {
-        margin: 50px 0;
-      }
+  span {
+    opacity: 0.25;
+  }
+}
 
-      span {
-        opacity: 0.25;
-      }
+.tab {
+  display: none;
+  &.active {
+    display: flex;
+  }
+  @media (max-width: 767px) {
+    margin-top: 32px;
+    flex-direction: column;
+  }
+  @media (min-width: 768px) and (max-width: 991px) {
+    gap: 50px;
+    flex-direction: column-reverse;
+  }
+  @media (max-width: 991px) {
+    text-align: center;
+  }
+  @media (min-width: 992px) {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    .center-flex {
+      justify-content: start;
+    }
+  }
+  .wrapper {
+    @media (min-width: 768px) {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+    @media (min-width: 992px) {
+      gap: 50px;
+    }
+  }
+
+  .tab-pic {
+    @media (max-width: 767px) {
+      width: 100%;
+      border-bottom: 1px solid #383b4b;
     }
 
-    .tab {
-      display: none;
-      &.active {
-        display: flex;
-      }
+    img {
       @media (max-width: 767px) {
-        margin-top: 32px;
-        flex-direction: column;
+        height: 222px;
+        min-width: 154px;
       }
-      @media (min-width: 768px) and (max-width: 991px) {
-        gap: 50px;
-        flex-direction: column-reverse;
+      @media (min-width: 768px) {
+        height: 532px;
+        max-width: 100%;
+        min-width: 368px;
       }
-      @media (max-width: 991px) {
-        text-align: center;
+      @media (min-width: 1200px) {
+        height: auto;
+        min-width: 453px;
+      }
+    }
+  }
+
+  .tab-controls {
+    gap: 15px;
+    @media (min-width: 1200px) {
+      width: auto;
+      height: auto;
+      margin: initial;
+    }
+    button {
+      width: 10px;
+      height: 10px;
+      opacity: 0.17;
+      cursor: pointer;
+      border-radius: 50%;
+      will-change: opacity;
+      transition: opacity 0.3s;
+      background-color: currentColor;
+      &.active,
+      &:hover,
+      &:focus-visible {
+        opacity: 1;
+      }
+    }
+  }
+
+  .tab-body {
+    h2 {
+      white-space: nowrap;
+      span {
+        opacity: 0.5;
+      }
+    }
+    .txt {
+      @media (max-width: 767px) {
+        max-width: 327px;
+        margin: 10px 0 50px;
+      }
+      @media (min-width: 768px) {
+        width: 458px;
+        margin: 10px 0 20px;
       }
       @media (min-width: 992px) {
-        flex-direction: row-reverse;
-        justify-content: space-between;
-        .center-flex {
-          justify-content: start;
-        }
-      }
-      .wrapper {
-        @media (min-width: 768px) {
-          display: flex;
-          flex-direction: column-reverse;
-        }
-        @media (min-width: 992px) {
-          gap: 50px;
-        }
-      }
-
-      .tab-pic {
-        @media (max-width: 767px) {
-          width: 100%;
-          border-bottom: 1px solid #383b4b;
-        }
-
-        img {
-          @media (max-width: 767px) {
-            height: 222px;
-            min-width: 154px;
-          }
-          @media (min-width: 768px) {
-            height: 532px;
-            max-width: 100%;
-            min-width: 368px;
-          }
-          @media (min-width: 1200px) {
-            height: auto;
-            min-width: 453px;
-          }
-        }
-      }
-
-      .tab-controls {
-        gap: 15px;
-        @media (min-width: 1200px) {
-          width: auto;
-          height: auto;
-          margin: initial;
-        }
-        button {
-          width: 10px;
-          height: 10px;
-          opacity: 0.17;
-          cursor: pointer;
-          border-radius: 50%;
-          will-change: opacity;
-          transition: opacity 0.3s;
-          background-color: currentColor;
-          &.active,
-          &:hover,
-          &:focus-visible {
-            opacity: 1;
-          }
-        }
-      }
-
-      .tab-body {
-        h2 {
-          white-space: nowrap;
-          span {
-            opacity: 0.5;
-          }
-        }
-        .txt {
-          @media (max-width: 767px) {
-            max-width: 327px;
-            margin: 10px 0 50px;
-          }
-          @media (min-width: 768px) {
-            width: 458px;
-            margin: 10px 0 20px;
-          }
-          @media (min-width: 992px) {
-            width: 444px;
-          }
-        }
+        width: 444px;
       }
     }
   }

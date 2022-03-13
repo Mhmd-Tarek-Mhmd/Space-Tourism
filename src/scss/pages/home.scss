@@ -1,7 +1,7 @@
 @import "../helpers/all.scss";
 @import "../layouts/nav.scss";
 
-body.home {
+body {
   display: grid;
   grid-template-rows: 96px calc(100% - 96px);
   @media (max-width: 767px) {
@@ -23,75 +23,73 @@ body.home {
     grid-template-rows: 176px calc(100% - 176px);
     background-image: url(../images/home/background-home-desktop.jpg);
   }
+}
 
-  main {
-    .container.space-between-flex {
-      @media (max-width: 991px) {
-        height: 100%;
-        flex-direction: column;
-        justify-content: space-evenly;
-      }
-    }
+.container.space-between-flex {
+  @media (max-width: 991px) {
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+}
 
-    .text {
-      @media (max-width: 991px) {
-        text-align: center;
-      }
-      @media (max-width: 767px) {
-        max-width: 327px;
-      }
-      @media (min-width: 768px) {
-        width: 466px;
-      }
-      @media (min-width: 1200px) {
-        width: 444px;
-      }
-    }
+.text {
+  @media (max-width: 991px) {
+    text-align: center;
+  }
+  @media (max-width: 767px) {
+    max-width: 327px;
+  }
+  @media (min-width: 768px) {
+    width: 466px;
+  }
+  @media (min-width: 1200px) {
+    width: 444px;
+  }
+}
 
-    .explore {
-      position: relative;
-      border-radius: 50%;
-      letter-spacing: 2px;
-      color: $primary-color;
-      background-color: white;
-      font: 400 32px/1 "Bellefair";
-      &::before {
-        content: "";
-        z-index: -1;
-        opacity: 0.1;
-        width: 0;
-        height: 0%;
-        position: absolute;
-        border-radius: inherit;
-        background-color: white;
-        transition-duration: 0.5s;
-        will-change: width, height;
-        transition-property: width, height;
-        transition-timing-function: ease-in-out;
-      }
-      &:hover::before {
-        width: 150%;
-        height: 150%;
-      }
-      @media (min-width: 992px) and (max-width: 1060px) {
-        margin-right: 35px;
-      }
-      @media (min-width: 1200px) and (max-width: 1230px) {
-        margin-right: 30px;
-      }
-      @media (max-width: 767px) {
-        width: 150px;
-        height: 150px;
-        font-size: 20px;
-      }
-      @media (min-width: 768px) {
-        width: 242px;
-        height: 242px;
-      }
-      @media (min-width: 1440px) {
-        width: 274px;
-        height: 274px;
-      }
-    }
+.explore {
+  position: relative;
+  border-radius: 50%;
+  letter-spacing: 2px;
+  color: $primary-color;
+  background-color: white;
+  font: 400 32px/1 "Bellefair";
+  &::before {
+    content: "";
+    z-index: -1;
+    opacity: 0.1;
+    width: 0;
+    height: 0%;
+    position: absolute;
+    border-radius: inherit;
+    background-color: white;
+    transition-duration: 0.5s;
+    will-change: width, height;
+    transition-property: width, height;
+    transition-timing-function: ease-in-out;
+  }
+  &:hover::before {
+    width: 150%;
+    height: 150%;
+  }
+  @media (min-width: 992px) and (max-width: 1060px) {
+    margin-right: 35px;
+  }
+  @media (min-width: 1200px) and (max-width: 1230px) {
+    margin-right: 30px;
+  }
+  @media (max-width: 767px) {
+    width: 150px;
+    height: 150px;
+    font-size: 20px;
+  }
+  @media (min-width: 768px) {
+    width: 242px;
+    height: 242px;
+  }
+  @media (min-width: 1440px) {
+    width: 274px;
+    height: 274px;
   }
 }
