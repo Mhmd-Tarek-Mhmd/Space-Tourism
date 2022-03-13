@@ -76,7 +76,9 @@ body.technology {
         }
         @media (min-width: 1200px) {
           padding: 0;
+          width: auto;
           height: auto;
+          margin: initial;
         }
         button {
           cursor: pointer;

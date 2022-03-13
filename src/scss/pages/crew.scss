@@ -87,7 +87,9 @@ body.crew {
       .tab-controls {
         gap: 15px;
         @media (min-width: 1200px) {
+          width: auto;
           height: auto;
+          margin: initial;
         }
         button {
           width: 10px;

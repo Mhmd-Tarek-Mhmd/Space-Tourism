@@ -73,7 +73,9 @@ body.destination {
         gap: 10px;
         padding: 5px 0 15px;
         @media (min-width: 1200px) {
+          width: auto;
           height: auto;
+          margin: initial;
         }
         button {
           height: 34px;
