@@ -116,15 +116,10 @@ h1 {
     }
     .txt {
       @media (max-width: 767px) {
-        max-width: 327px;
         margin: 10px 0 50px;
       }
       @media (min-width: 768px) {
-        width: 458px;
         margin: 10px 0 20px;
-      }
-      @media (min-width: 992px) {
-        width: 444px;
       }
     }
   }

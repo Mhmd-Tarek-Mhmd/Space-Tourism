@@ -81,15 +81,20 @@
 }
 
 .txt {
-  color: $secondary-color;
+  margin-left: auto;
+  margin-right: auto;
   font-family: "Barlow";
+  color: $secondary-color;
   @media (max-width: 767px) {
     font-size: 15px;
+    max-width: 327px;
   }
   @media (min-width: 768px) {
+    width: 458px;
     font-size: 16px;
   }
-  @media (min-width: 1200px) {
+  @media (min-width: 992px) {
+    width: 444px;
     font-size: 18px;
   }
 }

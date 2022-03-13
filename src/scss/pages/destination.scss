@@ -103,18 +103,9 @@ h1 {
   }
 
   .tab-body {
-    p {
-      @media (max-width: 767px) {
-        max-width: 327px;
-      }
-      @media (min-width: 768px) {
+    .txt {
+      @media (min-width: 768px) and (max-width: 991px) {
         width: 573px;
-      }
-      @media (min-width: 992px) {
-        width: 444px;
-      }
-      @media (max-width: 991px) {
-        margin: auto;
       }
     }
     .info {
