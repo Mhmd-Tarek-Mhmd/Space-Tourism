@@ -4,5 +4,5 @@ This is a solution to the [Space tourism website challenge on Frontend Mentor](h
 
 ### Links
 
-- Live Site [URL]()
+- Live Site [URL](https://space-tourism-page.netlify.app)
 - Solution [URL](https://www.frontendmentor.io/solutions/)
