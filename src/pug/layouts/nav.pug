@@ -13,4 +13,4 @@ mixin nav(pageName)
     ul.links.center-flex
       each item, i in ["home", "destination", "crew", "technology"]
         li
-          a(class=`${pageName === item ? 'active' : ''}` href=`${item === 'home' ? "/dist": pageName === 'home' ? "pages/"+item+".html" : item+".html"}`) #[span 0#{i}] #{item}
+          a(class=`${pageName === item ? 'active' : ''}` href=`${item === 'home' ? "/": pageName === 'home' ? "pages/"+item+".html" : item+".html"}`) #[span 0#{i}] #{item}
