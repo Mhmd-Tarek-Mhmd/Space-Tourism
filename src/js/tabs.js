@@ -90,33 +90,16 @@
     `,
     tabControls: (currentPage) => {
       const data = Controller.getData()[currentPage];
+      const addBtn = (aria, content = "") =>
+        `<button ${`aria-label="show ${aria} tab"`}>${content}</button>`;
 
       switch (currentPage) {
         case "destination":
-          return data
-            .map(
-              (d) =>
-                `<button ${`aria-label="show ${d.name} tab"`}>${d.name.toUpperCase()}</button>`
-            )
-            .join()
-            .replaceAll(",", "");
+          return data.map((d) => addBtn(d.name, d.name.toUpperCase())).join("");
         case "crew":
-          return data
-            .map(
-              (d) => `<button ${`aria-label="show ${d.role} tab"`}></button>`
-            )
-            .join()
-            .replaceAll(",", "");
+          return data.map((d) => addBtn(d.role)).join("");
         case "technology":
-          return data
-            .map(
-              (d, i) =>
-                `<button class=h4 ${`aria-label="show ${d.name} tab"`}>${
-                  i + 1
-                }</button>`
-            )
-            .join()
-            .replaceAll(",", "");
+          return data.map((d, i) => addBtn(d.name, i + 1)).join("");
       }
     },
     tabsBody: (d, currentPage) => {

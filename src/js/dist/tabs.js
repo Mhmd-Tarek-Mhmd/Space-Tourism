@@ -21,7 +21,7 @@
             <source srcset=${t.images.webp} type="image/webp" />
             <img src=${t.images.png} alt=${t.name} />
           `}</picture>
-    `,tabControls:t=>{const a=r.getData()[t];switch(t){case"destination":return a.map(t=>`<button ${`aria-label="show ${t.name} tab"`}>${t.name.toUpperCase()}</button>`).join().replaceAll(",","");case"crew":return a.map(t=>`<button ${`aria-label="show ${t.role} tab"`}></button>`).join().replaceAll(",","");case"technology":return a.map((t,a)=>`<button class=h4 ${`aria-label="show ${t.name} tab"`}>${a+1}</button>`).join().replaceAll(",","")}},tabsBody:(t,a)=>{switch(a){case"destination":return`
+    `,tabControls:t=>{const a=r.getData()[t],e=(t,a="")=>`<button ${`aria-label="show ${t} tab"`}>${a}</button>`;switch(t){case"destination":return a.map(t=>e(t.name,t.name.toUpperCase())).join("");case"crew":return a.map(t=>e(t.role)).join("");case"technology":return a.map((t,a)=>e(t.name,a+1)).join("")}},tabsBody:(t,a)=>{switch(a){case"destination":return`
             <h2 class=h2>${t.name.toUpperCase()}</h2>
             <p class=txt>${t.description}</p>
             <div class="info center-flex">
