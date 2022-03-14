@@ -18,7 +18,7 @@
     getData: () => Modal.data,
 
     init: async function () {
-      const res = await fetch("../assets/data.json");
+      const res = await fetch("assets/data.json");
       let data = await res.json();
       this.setData(data);
 
@@ -31,18 +31,20 @@
       const currentPage = Controller.getCurrentPage();
       const data = Controller.getData()[currentPage];
 
-      // [1] Add tabs
-      data.forEach((d, i) => {
-        $(".tabs").innerHTML += Templates.tab(d, i, currentPage);
-        $$(".tabs .tab")
-          [i].querySelectorAll("button")
-          [i].classList.add("active");
-      });
+      if (currentPage === "home") {
+        // [1] Add tabs
+        data.forEach((d, i) => {
+          $(".tabs").innerHTML += Templates.tab(d, i, currentPage);
+          $$(".tabs .tab")
+            [i].querySelectorAll("button")
+            [i].classList.add("active");
+        });
 
-      // [2] Handle navigation
-      $$(".tab-controls button").forEach((btn) =>
-        btn.addEventListener("click", this.render)
-      );
+        // [2] Handle navigation
+        $$(".tab-controls button").forEach((btn) =>
+          btn.addEventListener("click", this.render)
+        );
+      }
     },
 
     render: function (e) {

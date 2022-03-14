@@ -8,31 +8,22 @@ const gulp = require("gulp"),
 
 // HTML Tasks
 
-gulp.task("htmlHome", () =>
+gulp.task("html", () =>
   gulp
-    .src("src/pug/pages/home.pug")
+    .src("src/pug/app.pug")
     .pipe(rename("index"))
     .pipe(pug())
     .pipe(gulp.dest("dist"))
 );
 
-gulp.task("htmlPages", () =>
-  gulp
-    .src(["src/pug/pages/*.pug", "!src/pug/pages/home.pug"])
-    .pipe(pug())
-    .pipe(gulp.dest("dist/pages"))
-);
-
-const html = gulp.parallel("htmlHome", "htmlPages");
-
 // CSS Tasks
 
 gulp.task("css", () =>
   gulp
-    .src("src/scss/pages/*.scss")
+    .src("src/scss/app.scss")
     .pipe(scss({ outputStyle: "compressed" }))
     .pipe(autoprefixer("last 2 versions"))
-    .pipe(gulp.dest("dist/assets/styles"))
+    .pipe(gulp.dest("src/scss/dist"))
 );
 
 // JS Tasks
@@ -52,7 +43,7 @@ gulp.task("js", () =>
 // Watch All Tasks
 
 gulp.task("default", () => {
-  gulp.watch("src/pug/**/*.pug", html);
-  gulp.watch("src/scss/**/*.scss", gulp.series("css"));
-  gulp.watch("src/js/*.js", gulp.series("js", html));
+  gulp.watch("src/pug/**/*.pug", gulp.series("html"));
+  gulp.watch("src/scss/**/*.scss", gulp.series("css", "html"));
+  gulp.watch("src/js/*.js", gulp.series("js", "html"));
 });

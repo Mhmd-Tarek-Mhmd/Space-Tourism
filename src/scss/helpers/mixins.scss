@@ -1,13 +1,15 @@
-@mixin bg($pageName) {
-  body {
-    @media (max-width: 767px) {
-      background-image: url(../images/#{$pageName}/background-#{$pageName}-mobile.jpg);
-    }
-    @media (min-width: 768px) {
-      background-image: url(../images/#{$pageName}/background-#{$pageName}-tablet.jpg);
-    }
-    @media (min-width: 992px) {
-      background-image: url(../images/#{$pageName}/background-#{$pageName}-desktop.jpg);
+@mixin bg {
+  @each $item in "home", "destination", "crew", "technology" {
+    body[data-page="#{$item}"] {
+      @media (max-width: 767px) {
+        background-image: url(assets/images/#{$item}/background-#{$item}-mobile.jpg);
+      }
+      @media (min-width: 768px) {
+        background-image: url(assets/images/#{$item}/background-#{$item}-tablet.jpg);
+      }
+      @media (min-width: 992px) {
+        background-image: url(assets/images/#{$item}/background-#{$item}-desktop.jpg);
+      }
     }
   }
 }
