@@ -10,4 +10,4 @@ nav.space-between-flex
   ul.links.center-flex
     each item, i in ["home", "destination", "crew", "technology"]
       li
-        a(href='') #[span(aria-hidden='true') 0#{i}] #{item}
+        a(href='', class=`${i===0 ? 'active' : ''}`) #[span(aria-hidden='true') 0#{i}] #{item}

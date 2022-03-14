@@ -36,16 +36,23 @@
       $$("nav .links a").forEach((ele) =>
         ele.addEventListener("click", (e) => {
           e.preventDefault();
+
+          // [1] Handle route
           setCurrentPage(e.target.textContent.substr(3));
           this.render();
           TabsViews.init();
+
+          // [2] Handle active class
+          $("nav .links a.active").classList.remove("active");
+          e.target.classList.add('active');
         })
       );
     },
 
     render: function () {
-      const { getCurrentPage } = Controller;
+      const { getCurrentPage, setCurrentTab } = Controller;
 
+      setCurrentTab(0);
       document.body.dataset.page = getCurrentPage();
       document.title = `Space Tourism - ${
         getCurrentPage()[0].toUpperCase() + getCurrentPage().substr(1)
@@ -96,26 +103,26 @@
           <h1> <p class=h5> SO, YOU WANT TO TRAVEL TO</p><span class=h1>SPACE</span></h1>
           <p class=txt>Let’s face it; if you want to go to space, you might as well genuinely go to outer space and not hover kind of on the edge of it. Well sit back, and relax because we’ll give you a truly out of this world experience!</p>
         </div>
-        <button class=explore>EXPLORE</button>
+        <button class="explore center-flex">EXPLORE</button>
       </div>
     `,
       destination: `
       <div class=container>
-        <h1 class=h5><span aria-hidden=true>01</span>Pick your destination</h1>
+        <h1 class=h5><span aria-hidden=true>01</span> Pick your destination</h1>
         <div class=tabs></div>
       </div>
     `,
       crew: `
       <div class=container>
-        <h1 class=h5><span aria-hidden=true>02</span>Meet your crew</h1>
+        <h1 class=h5><span aria-hidden=true>02</span> Meet your crew</h1>
         <div class=tabs></div>
       </div>
     `,
       technology: `
       <div class=container>
-        <h1 class=h5><span aria-hidden=true>03</span>SPACE LAUNCH 101</h1>
-        <div class=tabs></div>
+        <h1 class=h5><span aria-hidden=true>03</span> SPACE LAUNCH 101</h1>
       </div>
+      <div class=tabs></div>
     `,
     },
     tab: function (d, i, currentPage) {

@@ -1,26 +1,26 @@
-!function(){const s=document.querySelector.bind(document),i=document.querySelectorAll.bind(document),e={currentPage:"home",currentTab:0,data:[]},c={getCurrentPage:()=>e.currentPage,setCurrentPage:t=>e.currentPage=t,getCurrentTab:()=>e.currentTab,setCurrentTab:t=>e.currentTab=t,setData:t=>e.data=t,getData:()=>e.data,init:async function(){const t=await fetch("assets/data.json");var e=await t.json();this.setData(e),a.init(),n.init()}},a={init:function(){const e=c["setCurrentPage"];this.render(),i("nav .links a").forEach(t=>t.addEventListener("click",t=>{t.preventDefault(),e(t.target.textContent.substr(3)),this.render(),n.init()}))},render:function(){const t=c["getCurrentPage"];document.body.dataset.page=t(),document.title="Space Tourism - "+(t()[0].toUpperCase()+t().substr(1)),s("main").innerHTML=r.pages[t()],s("main > *").dataset.page=t()}},n={init:function(){const a=c.getCurrentPage(),t=c.getData()[a];"home"!==a&&(t.forEach((t,e)=>{s(".tabs").innerHTML+=r.tab(t,e,a),i(".tabs .tab")[e].querySelectorAll("button")[e].classList.add("active")}),i(".tab-controls button").forEach(t=>t.addEventListener("click",this.render)))},render:function(t){const e=i(".tabs .tab");var a=i(".tab.active .tab-controls button");const{getCurrentTab:s,setCurrentTab:n}=c;e[s()].classList.remove("active"),n([...a].indexOf(t.target)),e[s()].classList.add("active")}},r={pages:{home:`
+!function(){const s=document.querySelector.bind(document),i=document.querySelectorAll.bind(document),e={currentPage:"home",currentTab:0,data:[]},c={getCurrentPage:()=>e.currentPage,setCurrentPage:t=>e.currentPage=t,getCurrentTab:()=>e.currentTab,setCurrentTab:t=>e.currentTab=t,setData:t=>e.data=t,getData:()=>e.data,init:async function(){const t=await fetch("assets/data.json");var e=await t.json();this.setData(e),a.init(),n.init()}},a={init:function(){const e=c["setCurrentPage"];this.render(),i("nav .links a").forEach(t=>t.addEventListener("click",t=>{t.preventDefault(),e(t.target.textContent.substr(3)),this.render(),n.init(),s("nav .links a.active").classList.remove("active"),t.target.classList.add("active")}))},render:function(){const{getCurrentPage:t,setCurrentTab:e}=c;e(0),document.body.dataset.page=t(),document.title="Space Tourism - "+(t()[0].toUpperCase()+t().substr(1)),s("main").innerHTML=r.pages[t()],s("main > *").dataset.page=t()}},n={init:function(){const a=c.getCurrentPage(),t=c.getData()[a];"home"!==a&&(t.forEach((t,e)=>{s(".tabs").innerHTML+=r.tab(t,e,a),i(".tabs .tab")[e].querySelectorAll("button")[e].classList.add("active")}),i(".tab-controls button").forEach(t=>t.addEventListener("click",this.render)))},render:function(t){const e=i(".tabs .tab");var a=i(".tab.active .tab-controls button");const{getCurrentTab:s,setCurrentTab:n}=c;e[s()].classList.remove("active"),n([...a].indexOf(t.target)),e[s()].classList.add("active")}},r={pages:{home:`
       <div class="container space-between-flex">
         <div class=text>
           <h1> <p class=h5> SO, YOU WANT TO TRAVEL TO</p><span class=h1>SPACE</span></h1>
           <p class=txt>Let’s face it; if you want to go to space, you might as well genuinely go to outer space and not hover kind of on the edge of it. Well sit back, and relax because we’ll give you a truly out of this world experience!</p>
         </div>
-        <button class=explore>EXPLORE</button>
+        <button class="explore center-flex">EXPLORE</button>
       </div>
     `,destination:`
       <div class=container>
-        <h1 class=h5><span aria-hidden=true>01</span>Pick your destination</h1>
+        <h1 class=h5><span aria-hidden=true>01</span> Pick your destination</h1>
         <div class=tabs></div>
       </div>
     `,crew:`
       <div class=container>
-        <h1 class=h5><span aria-hidden=true>02</span>Meet your crew</h1>
+        <h1 class=h5><span aria-hidden=true>02</span> Meet your crew</h1>
         <div class=tabs></div>
       </div>
     `,technology:`
       <div class=container>
-        <h1 class=h5><span aria-hidden=true>03</span>SPACE LAUNCH 101</h1>
-        <div class=tabs></div>
+        <h1 class=h5><span aria-hidden=true>03</span> SPACE LAUNCH 101</h1>
       </div>
+      <div class=tabs></div>
     `},tab:function(t,e,a){return`
       <article ${`class="tab space-between-flex ${0===e?"active":""}"`}>
         ${this.tabPic(t,a)}
