@@ -3,13 +3,14 @@
   const $$ = document.querySelectorAll.bind(document);
 
   const Modal = {
-    currentPage: document.title.substr(16).toLowerCase(),
+    currentPage: "home",
     currentTab: 0,
     data: [],
   };
 
   const Controller = {
     getCurrentPage: () => Modal.currentPage,
+    setCurrentPage: (val) => (Modal.currentPage = val),
 
     getCurrentTab: () => Modal.currentTab,
     setCurrentTab: (val) => (Modal.currentTab = val),
@@ -22,16 +23,45 @@
       let data = await res.json();
       this.setData(data);
 
-      Views.init();
+      RouteViews.init();
+      TabsViews.init();
     },
   };
 
-  const Views = {
+  const RouteViews = {
+    init: function () {
+      const { setCurrentPage } = Controller;
+
+      this.render();
+      $$("nav .links a").forEach((ele) =>
+        ele.addEventListener("click", (e) => {
+          e.preventDefault();
+          setCurrentPage(e.target.textContent.substr(3));
+          this.render();
+          TabsViews.init();
+        })
+      );
+    },
+
+    render: function () {
+      const { getCurrentPage } = Controller;
+
+      document.body.dataset.page = getCurrentPage();
+      document.title = `Space Tourism - ${
+        getCurrentPage()[0].toUpperCase() + getCurrentPage().substr(1)
+      }`;
+
+      $("main").innerHTML = Templates["pages"][getCurrentPage()];
+      $("main > *").dataset.page = getCurrentPage();
+    },
+  };
+
+  const TabsViews = {
     init: function () {
       const currentPage = Controller.getCurrentPage();
       const data = Controller.getData()[currentPage];
 
-      if (currentPage === "home") {
+      if (currentPage !== "home") {
         // [1] Add tabs
         data.forEach((d, i) => {
           $(".tabs").innerHTML += Templates.tab(d, i, currentPage);
@@ -59,6 +89,35 @@
   };
 
   const Templates = {
+    pages: {
+      home: `
+      <div class="container space-between-flex">
+        <div class=text>
+          <h1> <p class=h5> SO, YOU WANT TO TRAVEL TO</p><span class=h1>SPACE</span></h1>
+          <p class=txt>Let’s face it; if you want to go to space, you might as well genuinely go to outer space and not hover kind of on the edge of it. Well sit back, and relax because we’ll give you a truly out of this world experience!</p>
+        </div>
+        <button class=explore>EXPLORE</button>
+      </div>
+    `,
+      destination: `
+      <div class=container>
+        <h1 class=h5><span aria-hidden=true>01</span>Pick your destination</h1>
+        <div class=tabs></div>
+      </div>
+    `,
+      crew: `
+      <div class=container>
+        <h1 class=h5><span aria-hidden=true>02</span>Meet your crew</h1>
+        <div class=tabs></div>
+      </div>
+    `,
+      technology: `
+      <div class=container>
+        <h1 class=h5><span aria-hidden=true>03</span>SPACE LAUNCH 101</h1>
+        <div class=tabs></div>
+      </div>
+    `,
+    },
     tab: function (d, i, currentPage) {
       return `
       <article ${`class="tab space-between-flex ${i === 0 ? "active" : ""}"`}>
