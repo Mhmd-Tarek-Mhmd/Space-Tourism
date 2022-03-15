@@ -5,5 +5,5 @@ This is a solution to the [Space tourism website challenge on Frontend Mentor](h
 ### Links
 
 - Live Site [URL](https://space-tourism-page.netlify.app)
-- Solution [URL](https://www.frontendmentor.io/solutions/)
+- Solution [URL](https://www.frontendmentor.io/solutions/space-tourism-using-gulpandscss-OEkGEm-wX)
 - Single Page App version [URL](https://github.com/Mhmd-Tarek-Mhmd/Space-Tourism/tree/spa)
