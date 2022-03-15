@@ -29,7 +29,8 @@ body {
 
 .text {
   h1 p {
-    margin-bottom: 15px;
+    margin-bottom: -20px;
+    color: $secondary-color;
   }
   @media (max-width: 991px) {
     text-align: center;
