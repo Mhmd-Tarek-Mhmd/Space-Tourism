@@ -28,11 +28,8 @@ body {
 }
 
 .text {
-  h1 {
-    line-height: 1;
-    p {
-      margin-bottom: 15px;
-    }
+  h1 p {
+    margin-bottom: 15px;
   }
   @media (max-width: 991px) {
     text-align: center;
@@ -63,6 +60,9 @@ body {
   &:hover::before {
     width: 150%;
     height: 150%;
+  }
+  @media (min-width: 992px) {
+    align-self: end;
   }
   @media (min-width: 992px) and (max-width: 1060px) {
     margin-right: 35px;
