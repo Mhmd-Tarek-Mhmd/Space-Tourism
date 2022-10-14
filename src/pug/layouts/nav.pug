@@ -1,16 +1,19 @@
 mixin nav(pageName)
-  - let path = pageName === 'home' ? "assets/images/" : "../assets/images/";
+  - const imagesPath ="assets/images/";
+  - const fileName = pageName === 'home' ? "index" : pageName;
 
   nav.space-between-flex
-    a.logo(href="/dist" aria-label='Space Tourism logo')
-      img(src=`${path}logo.svg`, alt="")
+    a.logo(href="/dist/index.html" aria-label='Space Tourism logo')
+      img(src=`${imagesPath}logo.svg`, alt="")
 
     .line
 
     button.links-toggler(aria-label="Open menu" onclick="navToggler(event)")
-      img(src=`${path}nav/icon-hamburger.svg`, alt="")
+      img(src=`${imagesPath}nav/icon-hamburger.svg`, alt="")
 
     ul.links.center-flex
       each item, i in ["home", "destination", "crew", "technology"]
         li
-          a(class=`${pageName === item ? 'active' : ''}` href=`${item === 'home' ? "/": pageName === 'home' ? "pages/"+item+".html" : item+".html"}`) #[span(aria-hidden='true') 0#{i}] #{item}
+          a(class=`${pageName === item ? 'active' : ''}` href=`${item === 'home' ? "index" : item}.html`)
+            span(aria-hidden='true') 0#{i + " "}
+            =item

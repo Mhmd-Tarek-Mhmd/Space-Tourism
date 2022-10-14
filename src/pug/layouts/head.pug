@@ -1,13 +1,13 @@
 mixin head(pageName)
-  - let path = pageName === 'Home' ? "assets/" : "../assets/";
+  - const fileName = pageName === 'Home' ? "index" : pageName.toLowerCase();
 
   head
     meta(charset="UTF-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    link(rel="shortcut icon", href=`${path}images/logo.svg`)
+    link(rel="shortcut icon", href=`assets/images/logo.svg`)
     title Space Tourism - #{pageName}
-    link(rel="stylesheet", href=`${path}styles/${pageName.toLowerCase()}.css`)
     link(rel="preconnect" href="https://fonts.googleapis.com")
     link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
     link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bellefair&family=Barlow&family=Barlow+Condensed&display=swap")
+    link(rel="stylesheet", href=`assets/styles/${fileName}.css`)

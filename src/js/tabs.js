@@ -18,7 +18,7 @@
     getData: () => Modal.data,
 
     init: async function () {
-      const res = await fetch("../assets/data.json");
+      const res = await fetch("assets/data.json");
       let data = await res.json();
       this.setData(data);
 
