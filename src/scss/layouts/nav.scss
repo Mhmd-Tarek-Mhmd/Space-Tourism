@@ -98,7 +98,7 @@ nav {
       gap: 25px;
       will-change: translate;
       transition: translate 0.3s;
-      transform: translateX(254px);
+      display: none;
       li {
         width: 100%;
       }
@@ -115,7 +115,7 @@ nav {
       }
 
       &.show {
-        transform: translateX(0);
+        display: flex;
         a {
           visibility: visible;
         }
