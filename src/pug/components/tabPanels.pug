@@ -1,0 +1,7 @@
+mixin tabPanel(id, classes)
+  article(role="tabpanel" id=`tab-${id}` class=`tab-panel ${classes}`)
+    block
+
+mixin tabPanels(panels)
+  each panel in panels
+    block

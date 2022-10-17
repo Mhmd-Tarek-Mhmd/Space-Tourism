@@ -1,0 +1,13 @@
+mixin tabPic(images, label="")
+  - const names = Object.keys(images);
+  - const sources = Object.value(images);
+
+  picture
+    if names[0] === "portrait"
+      source(media="(max-width: 991)", srcset=sources.landscape)
+      source(media="(min-width: 992)", srcset=sources.portrait)
+      img(src=sources.portrait, alt=label)
+    else
+      source(srcset=sources.webp, type=`image/webp`)
+      source(srcset=sources.png, type=`image/png`)
+      img(src=sources.png, alt=label)
