@@ -3,7 +3,7 @@ mixin nav(pageName)
   - const fileName = pageName === 'home' ? "index" : pageName;
 
   nav.space-between-flex
-    a.logo(href="/dist/index.html" aria-label='Space Tourism logo')
+    a.logo(href="index.html" aria-label='Space Tourism logo')
       img(src=`${imagesPath}logo.svg`, alt="")
 
     .line
@@ -14,6 +14,6 @@ mixin nav(pageName)
     ul.links.center-flex
       each item, i in ["home", "destination", "crew", "technology"]
         li
-          a(class=`${pageName === item ? 'active' : ''}` href=`${item === 'home' ? "index" : item}.html`)
-            span(aria-hidden='true') 0#{i + " "}
-            =item
+          a(class=`link${pageName === item ? ' active' : ''}` href=`${item === 'home' ? "index" : item}.html`)
+            span(aria-hidden='true' class="num") 0#{i + " "}
+            span=item
