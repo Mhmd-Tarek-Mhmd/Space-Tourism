@@ -1,5 +1,6 @@
 include ../layouts/head
 include ../layouts/nav
+include ../layouts/header
 
 doctype html
 html(lang="en")
@@ -8,8 +9,8 @@ html(lang="en")
     +nav("destination")
 
     main
+      +header(1, "Pick your destination")
       .container
-        h1.h5 #[span(aria-hidden='true') 01] Pick your destination
         .tabs
 
     script

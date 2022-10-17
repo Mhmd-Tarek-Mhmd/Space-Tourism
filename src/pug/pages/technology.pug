@@ -1,5 +1,6 @@
 include ../layouts/head
 include ../layouts/nav
+include ../layouts/header
 
 doctype html
 html(lang="en")
@@ -8,7 +9,7 @@ html(lang="en")
     +nav('technology')
 
     main
-      .container #[h1.h5 #[span(aria-hidden='true') 03] SPACE LAUNCH 101]
+      +header(3, "Space Launch 101")
       .tabs
 
     script

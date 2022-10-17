@@ -1,5 +1,6 @@
 include ../layouts/head
 include ../layouts/nav
+include ../layouts/header
 
 doctype html
 html(lang="en")
@@ -8,8 +9,8 @@ html(lang="en")
     +nav("crew")
 
     main
+      +header(2, "Meet your crew")
       .container
-        h1.h5 #[span(aria-hidden='true') 02] Meet your crew
         .tabs
 
     script

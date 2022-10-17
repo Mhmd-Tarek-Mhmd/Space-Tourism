@@ -1,21 +1,7 @@
 @import "../helpers/all.scss";
 @import "../layouts/nav.scss";
+@import "../layouts/header.scss";
 @include bg("crew");
-
-h1 {
-  line-height: 1;
-  text-transform: uppercase;
-  @media (max-width: 767px) {
-    text-align: center;
-  }
-  @media (min-width: 768px) {
-    margin: 50px 0;
-  }
-
-  span {
-    opacity: 0.25;
-  }
-}
 
 .tab {
   display: none;
