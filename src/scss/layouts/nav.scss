@@ -124,7 +124,7 @@ nav {
     }
 
     // Active state
-    &.active {
+    &[aria-current="page"] {
       @media (max-width: 767px) {
         border-right: 3px solid white;
       }
