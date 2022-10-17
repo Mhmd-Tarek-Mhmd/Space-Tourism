@@ -21,111 +21,92 @@
   justify-content: space-between;
 }
 
-.h1 {
+%h {
   color: $base-color;
+  line-height: 1;
   font-weight: 400;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+.h1 {
+  @extend %h;
   font-family: "Bellefair";
   @media (max-width: 767px) {
     font-size: 80px;
-    line-height: 100px;
   }
   @media (min-width: 768px) {
     font-size: 150px;
-    line-height: 150px;
-  }
-  @media (min-width: 1200px) {
-    line-height: 182px;
   }
 }
 .h2 {
-  color: $base-color;
-  font-weight: 400;
+  @extend %h;
   font-family: "Bellefair";
   @media (max-width: 767px) {
     font-size: 56px;
-    line-height: 68px;
   }
   @media (min-width: 768px) {
     font-size: 80px;
-    line-height: 97px;
   }
   @media (min-width: 1200px) {
     font-size: 100px;
-    line-height: 121px;
   }
 }
 .h3 {
-  color: $base-color;
-  font-weight: 400;
+  @extend %h;
   font-family: "Bellefair";
   text-transform: uppercase;
   @media (max-width: 767px) {
     font-size: 24px;
-    line-height: 29px;
   }
   @media (min-width: 768px) {
     font-size: 40px;
-    line-height: 48px;
   }
   @media (min-width: 1200px) {
     font-size: 56px;
-    line-height: 68px;
   }
 }
 .h4 {
-  color: $base-color;
-  font-weight: 400;
+  @extend %h;
+  opacity: 0.5;
   font-family: "Bellefair";
-  text-transform: uppercase;
   @media (max-width: 767px) {
     font-size: 16px;
-    line-height: 19px;
   }
   @media (min-width: 768px) {
     font-size: 24px;
-    line-height: 29px;
   }
   @media (min-width: 1200px) {
     font-size: 32px;
-    line-height: 39px;
   }
 }
 .h5 {
-  font-weight: 400;
+  @extend %h;
   color: $secondary-color;
   font-family: "Barlow Condensed";
   @media (max-width: 767px) {
     font-size: 16px;
-    line-height: 19px;
     letter-spacing: 2.7px;
   }
   @media (min-width: 768px) {
     font-size: 20px;
-    line-height: 24px;
     letter-spacing: 3.375px;
   }
   @media (min-width: 1200px) {
     font-size: 28px;
-    line-height: 34px;
     letter-spacing: 4.725px;
   }
 }
 
 .sub-h1 {
-  color: $base-color;
+  @extend %h;
   font-size: 28px;
-  font-weight: 400;
-  line-height: 34px;
   font-family: "Bellefair";
-  text-transform: uppercase;
 }
 .sub-h2 {
+  @extend %h;
   font-size: 14px;
-  font-weight: 400;
-  line-height: 17px;
   color: $secondary-color;
   letter-spacing: 2.3625px;
-  text-transform: uppercase;
   font-family: "Barlow Condensed";
 }
 
@@ -141,7 +122,7 @@
     font-size: 16px;
     line-height: 28px;
   }
-  @media (min-width: 992px) {
+  @media (min-width: 1200px) {
     font-size: 18px;
     line-height: 32px;
   }
