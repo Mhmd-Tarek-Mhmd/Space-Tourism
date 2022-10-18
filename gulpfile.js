@@ -1,4 +1,5 @@
-const gulp = require("gulp"),
+const fs = require("fs"),
+  gulp = require("gulp"),
   pug = require("gulp-pug"),
   scss = require("gulp-sass")(require("sass")),
   autoprefixer = require("gulp-autoprefixer"),
@@ -7,7 +8,16 @@ const gulp = require("gulp"),
 
 // HTML Tasks
 gulp.task("html", () =>
-  gulp.src("src/pug/pages/*.pug").pipe(pug()).pipe(gulp.dest("dist"))
+  gulp
+    .src("src/pug/pages/*.pug")
+    .pipe(
+      pug({
+        locals: {
+          tabsData: JSON.parse(fs.readFileSync("src/data.json", "utf8")),
+        },
+      })
+    )
+    .pipe(gulp.dest("dist"))
 );
 
 // CSS Tasks
