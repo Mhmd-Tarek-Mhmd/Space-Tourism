@@ -1,0 +1,38 @@
+- const toCamelCase = (str) => str.toLowerCase().replaceAll(" ", "-");
+
+//- Tab Picture
+mixin tabPic(images, isHidden=true, label="")
+  - const names = Object.keys(images);
+  - const sources = Object.values(images);
+
+  picture(class="tabpic" data-panel=toCamelCase(label) hidden=isHidden)
+    if names[0] === "portrait"
+      source(media="(max-width: 991)", srcset=images.landscape)
+      source(media="(min-width: 992)", srcset=images.portrait)
+      img(src=images.portrait, alt=label)
+    else
+      source(srcset=images.webp, type=`image/webp`)
+      source(srcset=images.png, type=`image/png`)
+      img(src=images.png, alt=label)
+
+//- Tab
+mixin tab(textContent, name, isSelected=false)
+  button(
+    role="tab"
+    aria-label=`Show ${name} tab`
+    aria-control=`tab-${name}`
+    aria-selected=String(isSelected)
+    class="tab"
+  )=textContent
+
+//- Tab Panel
+mixin tabPanel(name, isHidden=true)
+  - const snakeCaseName = toCamelCase(name);
+  article(
+    role="tabpanel"
+    id=`tab-${snakeCaseName}`
+    class="tabpanel"
+    data-panel=snakeCaseName
+    hidden=isHidden
+  )
+    block

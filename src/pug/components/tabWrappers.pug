@@ -1,0 +1,22 @@
+- const getProp = (pageName, prop) => tabsData[pageName].map(obj => obj[prop]);
+- const getImages = (pageName) => getProp(pageName, "images");
+- const getNames = (pageName) => getProp(pageName, "name");
+
+//- Tab Pics
+mixin tabPics(pageName)
+  .tabpics
+    each image, i in getImages(pageName)
+      +tabPic(image, i!==0, getNames(pageName)[i])
+
+//- Tab List
+mixin tabList(pageName)
+  div(role="tablist" class="tablist")
+    each name, i in getNames(pageName)
+      - const isSelected = i === 0;
+      case pageName
+        when "destination"
+          +tab(name, name, isSelected)
+        when "crew"
+          +tab(i+1, name, isSelected)
+        default 
+          +tab("", name, isSelected)
