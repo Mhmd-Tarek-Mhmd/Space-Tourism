@@ -107,7 +107,7 @@ nav {
     will-change: border;
     letter-spacing: 2.7px;
     text-transform: uppercase;
-    font-family: "Barlow Condensed";
+    font-family: $secondary-font;
     @media (min-width: 768px) and (max-width: 1119px) {
       font-size: 14px;
     }

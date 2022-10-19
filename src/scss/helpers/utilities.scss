@@ -25,8 +25,8 @@
   color: $base-color;
   font-weight: 400;
   white-space: nowrap;
-  font-family: "Bellefair";
   text-transform: uppercase;
+  font-family: $main-font;
 }
 .h3 {
   @extend %h;
@@ -45,7 +45,7 @@
 }
 .h5 {
   @extend %h;
-  font-family: "Barlow Condensed";
+  font-family: $secondary-font;
   @media (max-width: 767px) {
     font-size: 16px;
     letter-spacing: 2.7px;
@@ -62,7 +62,7 @@
 
 .txt {
   font-weight: 400;
-  font-family: "Barlow";
+  font-family: $txt-font;
   color: $secondary-color;
   @media (max-width: 767px) {
     max-width: 300px;

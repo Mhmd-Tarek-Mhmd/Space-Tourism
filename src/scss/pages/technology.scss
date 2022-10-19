@@ -76,7 +76,7 @@
       cursor: pointer;
       color: $base-color;
       border-radius: 50%;
-      font-family: "Bellefair";
+      font-family: $main-font;
       border: 1px dashed rgba($base-color, 0.25);
       will-change: color, background-color, border-color;
       @extend .center-flex;
@@ -128,7 +128,7 @@
       font-size: 14px;
       color: $secondary-color;
       letter-spacing: 2.3625px;
-      font-family: "Barlow Condensed";
+      font-family: $secondary-font;
       @media (min-width: 768px) {
         font-size: 16px;
         letter-spacing: 2.7px;

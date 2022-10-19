@@ -72,7 +72,7 @@
       letter-spacing: 2.7px;
       color: $secondary-color;
       text-transform: uppercase;
-      font-family: "Barlow Condensed";
+      font-family: $secondary-font;
       @media (max-width: 767px) {
         height: 28px;
         font-size: 14px;
@@ -86,7 +86,7 @@
         width: 70%;
         height: 3px;
         position: absolute;
-        background-color: $base-color;
+        background-color: $secondary-color;
         will-change: content, opacity;
       }
 
@@ -115,7 +115,6 @@
 
     .title {
       @extend %h;
-      font-family: "Bellefair";
       @media (max-width: 767px) {
         font-size: 56px;
         line-height: 68px;
@@ -173,7 +172,7 @@
       font-size: 14px;
       color: $secondary-color;
       letter-spacing: 2.3625px;
-      font-family: "Barlow Condensed";
+      font-family: $secondary-font;
     }
   }
 }
