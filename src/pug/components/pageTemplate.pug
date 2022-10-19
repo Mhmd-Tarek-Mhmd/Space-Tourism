@@ -1,0 +1,30 @@
+include ../layouts/head
+include ../layouts/nav
+include ../layouts/header
+
+
+include ../components/tabWrappers
+
+mixin pageTemplate(pageName)
+  - const name = pageName.toLowerCase();
+  - const i = Object.keys(tabsData).indexOf(name) + 1;
+
+  doctype html
+  html(lang="en")
+    +head(pageName)
+    body
+      +nav(name)
+
+      main
+        +header(i, "Pick your destination")
+        section#destination
+          div(class=`${name}-wrapper | wrapper`)
+            +tabPics(name)
+            .content
+              +tabList(name)
+              block
+
+      script
+        include ../../js/dist/nav.js
+      script
+        include ../../js/dist/tabs.js
