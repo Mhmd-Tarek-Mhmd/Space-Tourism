@@ -5,7 +5,7 @@ include ../layouts/header
 
 include ../components/tabWrappers
 
-mixin pageTemplate(pageName)
+mixin pageTemplate(pageName, pageTitle)
   - const name = pageName.toLowerCase();
   - const i = Object.keys(tabsData).indexOf(name) + 1;
 
@@ -16,7 +16,7 @@ mixin pageTemplate(pageName)
       +nav(name)
 
       main
-        +header(i, "Pick your destination")
+        +header(i, pageTitle)
         section(id=name)
           div(class=`${name}-wrapper | wrapper`)
             +tabPics(name)
