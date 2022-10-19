@@ -7,9 +7,9 @@ mixin tabPic(images, isHidden=true, label="")
 
   picture(class="tabpic" data-panel=toCamelCase(label) hidden=isHidden)
     if names[0] === "portrait"
-      source(media="(max-width: 991)", srcset=images.landscape)
-      source(media="(min-width: 992)", srcset=images.portrait)
-      img(src=images.portrait, alt=label)
+      source(srcset=images.landscape, media="(max-width: 991px)")
+      source(srcset=images.portrait, media="(min-width: 992px)")
+      img(src=images.landscape, alt=label)
     else
       source(srcset=images.webp, type=`image/webp`)
       source(srcset=images.png, type=`image/png`)
