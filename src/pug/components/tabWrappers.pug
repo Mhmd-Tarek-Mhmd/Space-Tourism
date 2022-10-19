@@ -17,6 +17,6 @@ mixin tabList(pageName)
         when "destination"
           +tab(name, name, isSelected)
         when "crew"
-          +tab(i+1, name, isSelected)
-        default 
           +tab("", name, isSelected)
+        default 
+          +tab(i+1, name, isSelected)
