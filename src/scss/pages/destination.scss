@@ -1,93 +1,166 @@
-@import "../helpers/all.scss";
-@import "../layouts/nav.scss";
-@import "../layouts/header.scss";
+@import "../helpers/all";
+@import "../layouts/nav";
+@import "../layouts/header";
 @include bg("destination");
 
-.tab {
-  display: none;
-  &.active {
+#destination {
+  .destination-wrapper {
+    @media (min-width: 768px) and (max-width: 991px) {
+      max-width: 573px;
+      margin-inline: auto;
+    }
+    @media (max-width: 991px) {
+      padding-bottom: 40px;
+    }
+    @media (min-width: 992px) {
+      display: grid;
+      margin-top: 74px;
+      justify-content: space-between;
+      grid-template-columns: min-content 351px;
+      @media (max-height: 900px) {
+        padding-bottom: 60px;
+      }
+    }
+  }
+
+  // [1] Tab Pics
+  .tabpics {
+    align-self: end;
+    .tabpic:not([hidden]) {
+      display: block;
+    }
+    img {
+      @media (max-width: 767px) {
+        width: 177px;
+        height: 177px;
+      }
+      @media (min-width: 768px) {
+        width: 300px;
+        height: 300px;
+      }
+      @media (min-width: 992px) {
+        margin-block: 14px;
+      }
+      @media (min-width: 1200px) {
+        width: 445px;
+        height: 445px;
+      }
+    }
+  }
+
+  // [2] Tab List
+  .tablist {
     display: flex;
-  }
-  @media (min-width: 768px) and (max-width: 991px) {
-    gap: 20px;
-  }
-  @media (max-width: 991px) {
-    margin-top: 32px;
-    text-align: center;
-    flex-direction: column;
-  }
-  @media (min-width: 992px) {
-    justify-content: space-around;
-    .center-flex {
-      justify-content: start;
-    }
-  }
-
-  .tab-pic img {
+    column-gap: 12px;
     @media (max-width: 767px) {
-      width: 177px;
-      height: 177px;
+      margin-block: 26px 20px;
     }
-    @media (min-width: 768px) {
-      width: 300px;
-      height: 300px;
+    @media (max-width: 991px) {
+      margin-block: 53px 32px;
+      justify-content: center;
     }
-    @media (min-width: 1200px) {
-      width: 445px;
-      height: 445px;
+    @media (min-width: 992px) {
+      margin-bottom: 37px;
     }
-  }
 
-  .tab-controls {
-    gap: 10px;
-    padding: 5px 0 15px;
-    @media (min-width: 1200px) {
-      width: auto;
-      height: auto;
-      margin: initial;
-    }
-    button {
+    .tab {
       height: 34px;
+      font-size: 16px;
       cursor: pointer;
       position: relative;
+      display: inline-flex;
       letter-spacing: 2.7px;
       color: $secondary-color;
+      text-transform: uppercase;
+      font-family: "Barlow Condensed";
+      @media (max-width: 767px) {
+        height: 28px;
+        font-size: 14px;
+      }
+      @media (max-width: 991px) {
+        letter-spacing: 2.3625px;
+      }
       &::before {
         left: 0;
-        width: 70%;
-        height: 1px;
         bottom: 0;
+        width: 70%;
+        height: 3px;
         position: absolute;
-        background-color: white;
+        background-color: $base-color;
+        will-change: content, opacity;
       }
-      &.active,
-      &:hover,
-      &:focus-visible {
-        color: white;
+
+      &[aria-selected="true"] {
+        color: $base-color;
         &::before {
           content: "";
         }
       }
+      &[aria-selected="false"]:is(:hover, :focus-visible)::before {
+        content: "";
+        opacity: 0.5;
+      }
     }
   }
 
-  .tab-body {
-    .txt {
-      @media (min-width: 768px) and (max-width: 991px) {
-        width: 573px;
+  // [3] Tab Panel
+  .tabpanel {
+    width: fit-content;
+    margin-inline: auto;
+    @media (min-width: 768px) and (max-width: 991px) {
+      .txt {
+        width: 515px;
       }
     }
-    .info {
-      gap: 50px;
-      padding: 30px 0;
-      margin-top: 30px;
-      border-top: 1px solid #383b4b;
+
+    .title {
+      @extend %h;
+      font-family: "Bellefair";
       @media (max-width: 767px) {
-        gap: 30px;
-        flex-direction: column;
+        font-size: 56px;
+        line-height: 68px;
       }
-      h3 {
-        margin-bottom: 10px;
+      @media (min-width: 768px) {
+        font-size: 80px;
+        line-height: 97px;
+      }
+      @media (min-width: 1200px) {
+        font-size: 100px;
+        line-height: 121px;
+      }
+    }
+
+    .line {
+      margin-block: 32px;
+      border-color: #383b4b;
+      @media (min-width: 768px) {
+        margin-block: 49px 28px;
+      }
+      @media (min-width: 992px) {
+        margin-block-start: 22px;
+      }
+    }
+
+    .info {
+      display: grid;
+      @media (max-width: 767px) {
+        row-gap: 30px;
+      }
+      @media (min-width: 768px) {
+        justify-content: space-evenly;
+        grid-template-columns: repeat(2, max-content);
+      }
+      @media (min-width: 992px) {
+        column-gap: 57px;
+        justify-content: start;
+      }
+    }
+
+    .slot {
+      row-gap: 17px;
+      display: inherit;
+      @media (min-width: 767px) and (max-width: 991px) {
+        row-gap: 12px;
       }
     }
   }

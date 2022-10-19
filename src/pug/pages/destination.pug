@@ -1,19 +1,12 @@
-include ../layouts/head
-include ../layouts/nav
-include ../layouts/header
+include ../components/pageTemplate
+include ../components/tabParts
 
-doctype html
-html(lang="en")
-  +head("Destination")
-  body
-    +nav("destination")
-
-    main
-      +header(1, "Pick your destination")
-      .container
-        .tabs
-
-    script
-      include ../../js/dist/nav.js
-    script
-      include ../../js/dist/tabs.js
++pageTemplate("Destination")
+  each panel, i in tabsData["destination"]
+    +tabPanel(panel.name, i!==0)
+      h2.title=panel.name
+      p.txt=panel.description
+      hr.line
+      .info
+        .slot #[span.sub-h2 AVG. Distance] #[span.sub-h1=panel.distance]
+        .slot #[span.sub-h2 EST. travel time] #[span.sub-h1=panel.travel]
