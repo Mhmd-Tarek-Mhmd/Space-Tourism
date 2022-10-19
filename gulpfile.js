@@ -9,7 +9,7 @@ const fs = require("fs"),
 // HTML Tasks
 gulp.task("html", () =>
   gulp
-    .src("src/pug/pages/*.pug")
+    .src("src/pug/index.pug")
     .pipe(
       pug({
         locals: {
@@ -23,10 +23,10 @@ gulp.task("html", () =>
 // CSS Tasks
 gulp.task("css", () =>
   gulp
-    .src("src/scss/pages/*.scss")
+    .src("src/scss/index.scss")
     .pipe(scss({ outputStyle: "compressed" }))
     .pipe(autoprefixer("last 2 versions"))
-    .pipe(gulp.dest("dist/assets/styles"))
+    .pipe(gulp.dest("dist/assets"))
 );
 
 // JS Tasks
