@@ -20,7 +20,7 @@ mixin tab(textContent, name, isSelected=false)
   button(
     role="tab"
     aria-label=`Show ${name} tab`
-    aria-controls=`tab-${name}`
+    aria-controls=`tab-${toCamelCase(name)}`
     aria-selected=String(isSelected)
     class="tab"
     data-tab=toCamelCase(name)
@@ -29,7 +29,7 @@ mixin tab(textContent, name, isSelected=false)
 //- Tab Panel
 mixin tabPanel(name, isHidden=true)
   - const snakeCaseName = toCamelCase(name);
-  article(
+  div(
     role="tabpanel"
     id=`tab-${snakeCaseName}`
     class="tabpanel"

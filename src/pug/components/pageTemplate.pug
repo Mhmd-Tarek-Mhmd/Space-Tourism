@@ -17,7 +17,7 @@ mixin pageTemplate(pageName, pageTitle)
 
       main
         +header(i, pageTitle)
-        section(id=name)
+        div(role="region", id=name)
           div(class=`${name}-wrapper | wrapper`)
             +tabPics(name)
             .content
