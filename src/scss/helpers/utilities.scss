@@ -26,11 +26,11 @@
   line-height: 1;
   font-weight: 400;
   white-space: nowrap;
+  font-family: "Bellefair";
   text-transform: uppercase;
 }
 .h1 {
   @extend %h;
-  font-family: "Bellefair";
   @media (max-width: 767px) {
     font-size: 80px;
   }
@@ -40,7 +40,6 @@
 }
 .h2 {
   @extend %h;
-  font-family: "Bellefair";
   @media (max-width: 767px) {
     font-size: 56px;
   }
@@ -53,7 +52,6 @@
 }
 .h3 {
   @extend %h;
-  font-family: "Bellefair";
   @media (max-width: 767px) {
     font-size: 24px;
   }
@@ -67,7 +65,6 @@
 .h4 {
   @extend %h;
   opacity: 0.5;
-  font-family: "Bellefair";
   @media (max-width: 767px) {
     font-size: 16px;
   }
@@ -99,7 +96,6 @@
 .sub-h1 {
   @extend %h;
   font-size: 28px;
-  font-family: "Bellefair";
 }
 .sub-h2 {
   @extend %h;
@@ -111,18 +107,20 @@
 
 .txt {
   font-weight: 400;
-  margin-inline: auto;
   font-family: "Barlow";
   color: $secondary-color;
   @media (max-width: 767px) {
-    width: 300px;
+    max-width: 300px;
     font-size: 15px;
     line-height: 25px;
   }
   @media (min-width: 768px) {
-    width: 410px;
+    max-width: 410px;
     font-size: 16px;
     line-height: 28px;
+  }
+  @media (max-width: 991px) {
+    margin-inline: auto;
   }
   @media (min-width: 992px) {
     font-size: 18px;
