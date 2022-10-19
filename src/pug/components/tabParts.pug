@@ -20,9 +20,10 @@ mixin tab(textContent, name, isSelected=false)
   button(
     role="tab"
     aria-label=`Show ${name} tab`
-    aria-control=`tab-${name}`
+    aria-controls=`tab-${name}`
     aria-selected=String(isSelected)
     class="tab"
+    data-tab=toCamelCase(name)
   )=textContent
 
 //- Tab Panel
