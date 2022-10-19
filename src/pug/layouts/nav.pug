@@ -1,3 +1,12 @@
+mixin link(pageName, item)
+  - const href = `${item === 'home' ? "index" : item}.html`;
+  if pageName === item
+    a(aria-current="page" class="link" href=href)
+      block
+  else
+    a(class="link" href=href)
+      block
+
 mixin nav(pageName)
   - const imagesPath ="assets/images/";
 
@@ -13,6 +22,6 @@ mixin nav(pageName)
     ul#links.links.center-flex
       each item, i in ["home", "destination", "crew", "technology"]
         li
-          a(aria-current=`${pageName === item ? "page" : ""}` class=`link${pageName === item ? ' active' : ''}` href=`${item === 'home' ? "index" : item}.html`)
+          +link(pageName, item)
             span(aria-hidden='true' class="num") 0#{i + " "}
             span=item
