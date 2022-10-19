@@ -33,7 +33,7 @@
     align-self: end;
     @media (max-width: 767px) {
       width: 90%;
-      border-bottom: 1px solid #383b4b;
+      border-bottom: 1px solid $separator-color;
     }
     @media (min-width: 768px) {
       order: 1;

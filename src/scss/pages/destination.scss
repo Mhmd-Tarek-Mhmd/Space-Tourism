@@ -132,7 +132,7 @@
 
     .line {
       margin-block: 32px;
-      border-color: #383b4b;
+      border-color: $separator-color;
       @media (min-width: 768px) {
         margin-block: 49px 28px;
       }
