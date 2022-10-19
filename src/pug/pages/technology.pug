@@ -1,18 +1,10 @@
-include ../layouts/head
-include ../layouts/nav
-include ../layouts/header
+include ../components/pageTemplate
+include ../components/tabParts
 
-doctype html
-html(lang="en")
-  +head('Technology')
-  body
-    +nav('technology')
-
-    main
-      +header(3, "Space Launch 101")
-      .tabs
-
-    script
-      include ../../js/dist/nav.js
-    script
-      include ../../js/dist/tabs.js
++pageTemplate("Technology", "Space Launch 101")
+  each panel, i in tabsData["technology"]
+    +tabPanel(panel.name, i!==0)
+      h2.title
+        span.terminology The Terminology…
+        span.h3=panel.name
+      p.txt=panel.description

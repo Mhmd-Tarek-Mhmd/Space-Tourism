@@ -1,99 +1,137 @@
-@import "../helpers/all.scss";
-@import "../layouts/nav.scss";
-@import "../layouts/header.scss";
-@include bg("destination");
+@import "../helpers/all";
+@import "../layouts/nav";
+@import "../layouts/header";
+@include bg("technology");
 
-.tab {
-  display: none;
-  &.active {
-    display: flex;
-  }
-  @media (min-width: 768px) and (max-width: 991px) {
-    gap: 20px;
-  }
-  @media (max-width: 991px) {
-    margin-top: 32px;
-    text-align: center;
-    flex-direction: column;
-  }
-  @media (min-width: 992px) {
-    margin: auto;
-    max-width: 1440px;
-    padding-bottom: 50px;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    .center-flex {
-      justify-content: start;
-    }
-  }
-  .wrapper {
-    @extend .container;
-    @media (min-width: 992px) {
-      display: flex;
-      justify-content: space-around;
-    }
-  }
-
-  .tab-pic img {
+#technology {
+  .technology-wrapper {
+    padding-bottom: 24px;
     @media (max-width: 991px) {
-      width: 100%;
+      padding-inline: 0;
     }
-    @media (min-width: 992px) and (max-width: 1199px) {
-      width: 350px;
-    }
-  }
-
-  .tab-controls {
-    gap: 15px;
     @media (min-width: 992px) {
       display: grid;
-      padding: 24px 0;
+      margin-top: 26px;
+      column-gap: 30px;
+      padding-right: 0;
+      justify-content: space-between;
+      grid-template-columns: max-content minmax(400px, max-content);
+    }
+    @media (min-width: 1400px) {
+      grid-template-columns: 1fr max-content;
+    }
+  }
+  .content {
+    @media (min-width: 992px) {
+      display: flex;
+    }
+    @media (min-width: 992px) and (max-width: 1399px) {
+      align-self: end;
+      flex-direction: column-reverse;
+    }
+    @media (min-width: 1400px) {
+      column-gap: 80px;
+      align-self: center;
+    }
+  }
+
+  // [1] Tab Pics
+  .tabpics {
+    @media (max-width: 991px) {
+      img {
+        width: 100%;
+      }
+    }
+    @media (min-width: 992px) {
+      order: 1;
+      img {
+        max-width: 100%;
+      }
+    }
+  }
+
+  // [2] Tab List
+  .tablist {
+    display: flex;
+    @media (max-width: 991px) {
+      justify-content: center;
+      margin-block: 56px 44px;
+    }
+    @media (max-width: 1399px) {
+      column-gap: 16px;
+      margin-block-start: 56px;
+    }
+    @media (max-width: 767px) {
+      margin-block: 36px 26px;
     }
     @media (min-width: 1200px) {
-      padding: 0;
-      width: auto;
-      height: auto;
-      margin: initial;
+      column-gap: 32px;
     }
-    button {
+    @media (min-width: 1400px) {
+      row-gap: 32px;
+      flex-direction: column;
+    }
+
+    .tab {
       cursor: pointer;
+      color: $base-color;
       border-radius: 50%;
-      border: 1px solid white;
-      will-change: color, background-color;
-      &.active,
-      &:hover,
-      &:focus-visible {
-        color: $primary-color;
-        background-color: white;
-      }
+      font-family: "Bellefair";
+      border: 1px dashed rgba($base-color, 0.25);
+      will-change: color, background-color, border-color;
+      @extend .center-flex;
       @media (max-width: 767px) {
         width: 40px;
         height: 40px;
+        font-size: 19px;
       }
       @media (min-width: 768px) {
         width: 60px;
         height: 60px;
+        font-size: 24px;
       }
       @media (min-width: 1200px) {
         width: 80px;
         height: 80px;
+        font-size: 32px;
+      }
+
+      &[aria-selected="true"] {
+        color: $primary-color;
+        background-color: $base-color;
+      }
+      &:is(:hover, :focus-visible) {
+        border-color: $base-color;
       }
     }
   }
 
-  .tab-body {
-    h2 span {
-      opacity: 0.5;
-    }
-    .txt {
+  // [3] Tab Panels
+  .tabpanel {
+    .title {
+      display: grid;
       @media (max-width: 767px) {
-        margin: 10px auto 50px;
+        row-gap: 12px;
+        margin-bottom: 15px;
       }
       @media (min-width: 768px) {
-        margin: 10px auto 20px;
+        row-gap: 16px;
+        margin-bottom: 14px;
       }
       @media (min-width: 992px) {
-        width: 470px;
+        row-gap: 21px;
+        margin-bottom: 13px;
+      }
+    }
+    .terminology {
+      @extend %h;
+      font-size: 14px;
+      color: $secondary-color;
+      letter-spacing: 2.3625px;
+      font-family: "Barlow Condensed";
+      @media (min-width: 768px) {
+        font-size: 16px;
+        letter-spacing: 2.7px;
       }
     }
   }
