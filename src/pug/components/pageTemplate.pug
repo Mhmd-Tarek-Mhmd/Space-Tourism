@@ -17,7 +17,7 @@ mixin pageTemplate(pageName)
 
       main
         +header(i, "Pick your destination")
-        section#destination
+        section(id=name)
           div(class=`${name}-wrapper | wrapper`)
             +tabPics(name)
             .content
