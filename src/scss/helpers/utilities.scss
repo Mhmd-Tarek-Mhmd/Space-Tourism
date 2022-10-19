@@ -23,61 +23,28 @@
 
 %h {
   color: $base-color;
-  line-height: 1;
   font-weight: 400;
   white-space: nowrap;
   font-family: "Bellefair";
   text-transform: uppercase;
 }
-.h1 {
-  @extend %h;
-  @media (max-width: 767px) {
-    font-size: 80px;
-  }
-  @media (min-width: 768px) {
-    font-size: 150px;
-  }
-}
-.h2 {
-  @extend %h;
-  @media (max-width: 767px) {
-    font-size: 56px;
-  }
-  @media (min-width: 768px) {
-    font-size: 80px;
-  }
-  @media (min-width: 1200px) {
-    font-size: 100px;
-  }
-}
 .h3 {
   @extend %h;
   @media (max-width: 767px) {
     font-size: 24px;
+    line-height: 29px;
   }
   @media (min-width: 768px) {
     font-size: 40px;
+    line-height: 48px;
   }
   @media (min-width: 1200px) {
     font-size: 56px;
-  }
-}
-.h4 {
-  @extend %h;
-  opacity: 0.5;
-  @media (max-width: 767px) {
-    font-size: 16px;
-  }
-  @media (min-width: 768px) {
-    font-size: 24px;
-  }
-  @media (min-width: 1200px) {
-    font-size: 32px;
+    line-height: 68px;
   }
 }
 .h5 {
   @extend %h;
-  color: $secondary-color;
   font-family: "Barlow Condensed";
   @media (max-width: 767px) {
     font-size: 16px;
@@ -91,18 +58,6 @@
     font-size: 28px;
     letter-spacing: 4.725px;
   }
-}
-
-.sub-h1 {
-  @extend %h;
-  font-size: 28px;
-}
-.sub-h2 {
-  @extend %h;
-  font-size: 14px;
-  color: $secondary-color;
-  letter-spacing: 2.3625px;
-  font-family: "Barlow Condensed";
 }
 
 .txt {

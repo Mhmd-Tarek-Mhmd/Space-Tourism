@@ -163,5 +163,17 @@
         row-gap: 12px;
       }
     }
+
+    .sub-h1 {
+      @extend %h;
+      font-size: 28px;
+    }
+    .sub-h2 {
+      @extend %h;
+      font-size: 14px;
+      color: $secondary-color;
+      letter-spacing: 2.3625px;
+      font-family: "Barlow Condensed";
+    }
   }
 }

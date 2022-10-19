@@ -55,6 +55,9 @@
       }
     }
 
+    .h5 {
+      color: $secondary-color;
+    }
     .txt {
       @media (min-width: 992px) {
         max-width: 400px;
