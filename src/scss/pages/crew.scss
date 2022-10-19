@@ -1,101 +1,134 @@
-@import "../helpers/all.scss";
-@import "../layouts/nav.scss";
-@import "../layouts/header.scss";
+@import "../helpers/all";
+@import "../layouts/nav";
+@import "../layouts/header";
 @include bg("crew");
 
-.tab {
-  display: none;
-  &.active {
-    display: flex;
-  }
-  @media (max-width: 767px) {
-    margin-top: 32px;
-    flex-direction: column;
-  }
-  @media (min-width: 768px) and (max-width: 991px) {
-    gap: 50px;
-    flex-direction: column-reverse;
-  }
-  @media (max-width: 991px) {
-    text-align: center;
-  }
-  @media (min-width: 992px) {
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    .center-flex {
-      justify-content: start;
+#crew {
+  .crew-wrapper {
+    display: grid;
+    justify-items: center;
+    @media (max-width: 767px) {
+      padding-bottom: 24px;
+    }
+    @media (min-width: 992px) {
+      column-gap: 30px;
+      align-items: end;
+      grid-template-rows: 500px;
+      grid-template-columns: max-content 1fr;
+    }
+    @media (min-width: 1100px) {
+      grid-template-rows: minmax(70vh, 650px);
     }
   }
-  .wrapper {
+  .content {
     @media (min-width: 768px) {
       display: flex;
       flex-direction: column-reverse;
     }
-    @media (min-width: 992px) {
-      gap: 50px;
-    }
   }
 
-  .tab-pic {
+  // [1] Tab Pics
+  .tabpics {
+    width: 100%;
+    align-self: end;
     @media (max-width: 767px) {
-      width: 100%;
+      width: 90%;
       border-bottom: 1px solid #383b4b;
     }
+    @media (min-width: 768px) {
+      order: 1;
+    }
 
-    img {
+    .tabpic {
+      &:not([hidden]) {
+        display: block;
+      }
       @media (max-width: 767px) {
-        height: 222px;
-        min-width: 154px;
+        height: 223px;
       }
-      @media (min-width: 768px) {
+      @media (min-width: 768px) and (max-width: 991px) {
         height: 532px;
-        max-width: 100%;
-        min-width: 368px;
       }
-      @media (min-width: 1200px) {
-        height: auto;
-        min-width: 453px;
+      @media (max-width: 991px) {
+        img {
+          height: 100%;
+        }
+      }
+      @media (min-width: 992px) {
+        img {
+          display: block;
+          max-width: 100%;
+          margin-left: auto;
+        }
       }
     }
   }
 
-  .tab-controls {
-    gap: 15px;
-    @media (min-width: 1200px) {
-      width: auto;
-      height: auto;
-      margin: initial;
+  // [2] Tab List
+  .tablist {
+    display: flex;
+    column-gap: 16px;
+    justify-content: center;
+    @media (max-width: 767px) {
+      margin-block: 32px;
     }
-    button {
+    @media (min-width: 768px) {
+      margin-block: 12px 40px;
+    }
+    @media (min-width: 992px) {
+      column-gap: 24px;
+      margin-block: 8vh 0;
+      padding-bottom: 40px;
+      justify-content: flex-start;
+    }
+
+    .tab {
       width: 10px;
       height: 10px;
-      opacity: 0.17;
       cursor: pointer;
       border-radius: 50%;
+      opacity: 0.17436291;
       will-change: opacity;
-      transition: opacity 0.3s;
-      background-color: currentColor;
-      &.active,
-      &:hover,
-      &:focus-visible {
+      background-color: $base-color;
+      &:is(:hover, :focus-visible),
+      &[aria-selected="true"] {
         opacity: 1;
+      }
+      @media (min-width: 992px) {
+        width: 15px;
+        height: 15px;
       }
     }
   }
 
-  .tab-body {
-    h2 {
-      white-space: nowrap;
-      span {
-        opacity: 0.5;
+  // [3] Tab Panels
+  .tabpanel {
+    .title {
+      display: grid;
+      @media (max-width: 991px) {
+        row-gap: 7px;
+        margin-bottom: 15px;
+      }
+      @media (min-width: 992px) {
+        row-gap: 13px;
+        margin-bottom: 23px;
       }
     }
-    .txt {
+
+    .role {
+      @extend %h;
+      opacity: 0.5;
       @media (max-width: 767px) {
-        margin: 10px 0 50px;
+        font-size: 16px;
+        line-height: 19px;
       }
       @media (min-width: 768px) {
-        margin: 10px 0 20px;
+        font-size: 24px;
+        line-height: 24px;
+      }
+      @media (min-width: 1200px) {
+        font-size: 32px;
+        line-height: 39px;
       }
     }
   }

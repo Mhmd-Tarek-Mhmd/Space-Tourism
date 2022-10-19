@@ -1,19 +1,10 @@
-include ../layouts/head
-include ../layouts/nav
-include ../layouts/header
+include ../components/pageTemplate
+include ../components/tabParts
 
-doctype html
-html(lang="en")
-  +head("Crew")
-  body
-    +nav("crew")
-
-    main
-      +header(2, "Meet your crew")
-      .container
-        .tabs
-
-    script
-      include ../../js/dist/nav.js
-    script
-      include ../../js/dist/tabs.js
++pageTemplate("Crew")
+  each panel, i in tabsData["crew"]
+    +tabPanel(panel.name, i!==0)
+      h2.title
+        span.role=panel.role
+        span.h3=panel.name
+      p.txt=panel.bio
