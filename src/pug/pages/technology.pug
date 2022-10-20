@@ -1,7 +1,4 @@
-include ../components/pageTemplate
-include ../components/tabParts
-
-+pageTemplate("Technology", "Space Launch 101")
++pageTemplate("technology", "Space Launch 101")
   each panel, i in tabsData["technology"]
     +tabPanel(panel.name, i!==0)
       h2.title

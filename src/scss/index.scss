@@ -1,0 +1,27 @@
+// Helpers
+@import "helpers/all";
+
+// Layouts
+@import "layouts/nav";
+@import "layouts/header";
+
+// Hide all pages wrappers
+[data-page]:not(body) {
+  display: none;
+}
+
+// [1] Home Page
+@include pagesBody("home");
+@import "pages/home";
+
+// [2] Destination Page
+@include pagesBody("destination");
+@import "pages/destination";
+
+// [3] Crew Page
+@include pagesBody("crew");
+@import "pages/crew";
+
+// [3] Technology Page
+@include pagesBody("technology");
+@import "pages/technology";

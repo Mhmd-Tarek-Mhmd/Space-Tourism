@@ -1,0 +1,23 @@
+include layouts/nav
+include layouts/header
+
+include components/pageTemplate
+include components/tabParts
+include components/tabWrappers
+
+doctype html
+html(lang="en")
+  include layouts/head
+  body(data-page="home")
+    +nav
+
+    main
+      include pages/home
+      include pages/destination
+      include pages/crew
+      include pages/technology
+
+    script
+      include ../js/dist/nav.js
+    script
+        include ../js/dist/tabs.js

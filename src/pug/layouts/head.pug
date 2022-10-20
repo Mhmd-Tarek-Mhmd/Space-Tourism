@@ -1,13 +1,10 @@
-mixin head(pageName)
-  - const fileName = pageName === 'Home' ? "index" : pageName.toLowerCase();
-
-  head
-    meta(charset="UTF-8")
-    meta(http-equiv="X-UA-Compatible", content="IE=edge")
-    meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    link(rel="shortcut icon", href=`assets/images/logo.svg`)
-    title #{pageName} - Space Tourism
-    link(rel="preconnect" href="https://fonts.googleapis.com")
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bellefair&family=Barlow&family=Barlow+Condensed&display=swap")
-    link(rel="stylesheet", href=`assets/styles/${fileName}.css`)
+head
+  meta(charset="UTF-8")
+  meta(http-equiv="X-UA-Compatible", content="IE=edge")
+  meta(name="viewport", content="width=device-width, initial-scale=1.0")
+  link(rel="shortcut icon", href=`assets/images/logo.svg`)
+  title Home - Space Tourism
+  link(rel="preconnect" href="https://fonts.googleapis.com")
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bellefair&family=Barlow&family=Barlow+Condensed&display=swap")
+  link(rel="stylesheet", href=`assets/index.css`)

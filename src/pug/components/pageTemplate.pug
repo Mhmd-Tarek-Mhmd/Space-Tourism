@@ -1,30 +1,13 @@
 include ../layouts/head
 include ../layouts/nav
-include ../layouts/header
-
-
-include ../components/tabWrappers
-
 mixin pageTemplate(pageName, pageTitle)
-  - const name = pageName.toLowerCase();
-  - const i = Object.keys(tabsData).indexOf(name) + 1;
+  - const i = Object.keys(tabsData).indexOf(pageName) + 1;
 
-  doctype html
-  html(lang="en")
-    +head(pageName)
-    body
-      +nav(name)
-
-      main
-        +header(i, pageTitle)
-        div(role="region", id=name)
-          div(class=`${name}-wrapper | wrapper`)
-            +tabPics(name)
-            .content
-              +tabList(name)
-              block
-
-      script
-        include ../../js/dist/nav.js
-      script
-        include ../../js/dist/tabs.js
+  div(data-page=pageName)
+    +header(i, pageTitle)
+    div(role="region", id=pageName)
+      div(class=`${pageName}-wrapper | wrapper`)
+        +tabPics(pageName)
+        .content
+          +tabList(pageName)
+          block

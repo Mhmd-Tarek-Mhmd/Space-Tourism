@@ -1,17 +1,16 @@
-mixin link(pageName, item)
-  - const href = `${item === 'home' ? "index" : item}.html`;
-  if pageName === item
-    a(aria-current="page" class="link" href=href)
+mixin link(i, item)
+  if i === 0
+    a(aria-current="page" class="link" href="" data-route=item)
       block
   else
-    a(class="link" href=href)
+    a(class="link" href="" data-route=item)
       block
 
-mixin nav(pageName)
+mixin nav
   - const imagesPath ="assets/images/";
 
   nav.space-between-flex
-    a.logo(href="index.html" aria-label='To home page')
+    a.logo(href="" data-route="home" aria-label='To home page')
       img(aria-hidden="true" src=`${imagesPath}logo.svg`, alt="")
 
     .line(aria-hidden="true")
@@ -22,6 +21,6 @@ mixin nav(pageName)
     ul#links.links.center-flex
       each item, i in ["home", "destination", "crew", "technology"]
         li
-          +link(pageName, item)
+          +link(i, item)
             span(aria-hidden='true' class="num") 0#{i + " "}
             span=item

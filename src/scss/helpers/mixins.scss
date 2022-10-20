@@ -1,15 +1,22 @@
-@mixin bg($pageName) {
+@mixin pagesBody($pageName) {
   body {
     min-height: 100vh;
     background-size: 100% 100%;
-    @media (max-width: 767px) {
-      background-image: url(../images/#{$pageName}/bg-mobile.jpg);
-    }
-    @media (min-width: 768px) {
-      background-image: url(../images/#{$pageName}/bg-tablet.jpg);
-    }
-    @media (min-width: 992px) {
-      background-image: url(../images/#{$pageName}/bg-desktop.jpg);
+
+    &[data-page="#{$pageName}"] {
+      @media (max-width: 767px) {
+        background-image: url(images/#{$pageName}/bg-mobile.jpg);
+      }
+      @media (min-width: 768px) {
+        background-image: url(images/#{$pageName}/bg-tablet.jpg);
+      }
+      @media (min-width: 992px) {
+        background-image: url(images/#{$pageName}/bg-desktop.jpg);
+      }
+
+      [data-page="#{$pageName}"] {
+        display: block;
+      }
     }
   }
 }

@@ -1,7 +1,4 @@
-include ../components/pageTemplate
-include ../components/tabParts
-
-+pageTemplate("Destination", "Pick your destination")
++pageTemplate("destination", "Pick your destination")
   each panel, i in tabsData["destination"]
     +tabPanel(panel.name, i!==0)
       h2.title=panel.name
